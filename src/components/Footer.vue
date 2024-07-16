@@ -1,5 +1,5 @@
 <template>
-  <footer class="flex justify-center">
-    <a href="https://github.com/antoine-michel/qrcode-generator">Github</a>
+  <footer class="p-6 bg-slate-100">
+    <a href="https://github.com/math-dev-24/qrcode-generator-vue" target="_blank">Github</a>
   </footer>
 </template>

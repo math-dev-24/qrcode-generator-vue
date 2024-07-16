@@ -8,16 +8,26 @@ h1{
 
 ul{
     li{
-        @apply px-1 py-2 block;
+        @apply px-1 py-2 block mx-2;
         a:not(.router-link-exact-active){
-            @apply hover:underline hover:text-blue-500;
+            @apply hover:underline hover:text-orange-500;
         }
         a.router-link-exact-active {
-            @apply text-blue-500;
+            @apply text-orange-600;
         }
     }
 }
 
-input{
-    @apply px-0.5 py-1 rounded-md border border-gray-400 drop-shadow-sm;
+input, select{
+    @apply rounded-md py-1 px-2 outline-0 focus:outline-2 outline-stone-400 outline-offset-2;
+}
+input[type="color"]{
+    @apply w-1/6 p-0.5;
+}
+
+.form_group{
+    @apply flex flex-col gap-2;
+    label{
+        @apply text-sm font-bold;
+    }
 }

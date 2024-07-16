@@ -1,16 +1,16 @@
 <template>
-  <h1>Générer un QR Code d'une URL</h1>
-  <div>
-    <label for="url">URL</label>
-    <input type="text" id="url" v-model="url"/>
-  </div>
-  <div v-if="url">
-    <QRCodeVue :value="url" :size="200" />
-  </div>
+  <section class="container mx-auto">
+    <h1 class="text-center">Générer un QR Code d'une URL</h1>
+    <Url />
+    <div class="grid grid-cols-4 gap-4">
+      <QRCard v-for="qr in useQrStore().getListUrl" :key="qr.id" :qr="qr" />
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import QRCodeVue from 'vue-qrcode'
-const url = ref<string>("")
+import Url from '@/components/form/Url.vue'
+import QRCard from '@/components/QRCard.vue'
+import { useQrStore } from '@/stores/QrStore'
+
 </script>
