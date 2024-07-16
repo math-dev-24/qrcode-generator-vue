@@ -13,7 +13,10 @@ export const useQrStore = defineStore('qr', {
   getters: {
     getList: (state) => state.list,
     getListUrl: (state) => state.list.filter(item => item.type === "url"),
-    getListVCard: (state) => state.list.filter(item => item.type === "vcard")
+    getListVCard: (state) => state.list.filter(item => item.type === "vcard"),
+    getListText: (state) => state.list.filter(item => item.type === "text"),
+    getListEmail: (state) => state.list.filter(item => item.type === "email"),
+    getListSms: (state) => state.list.filter(item => item.type === "sms"),
   },
   actions: {
     addQr(qr: QrInterface) {

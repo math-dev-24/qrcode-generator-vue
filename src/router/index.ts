@@ -18,6 +18,26 @@ const router = createRouter({
       path: "/v-card",
       name: "v-card",
       component: () => import("../views/ContactGenView.vue")
+    },
+    {
+      path: "/text",
+      name: "text",
+      component: () => import("../views/SimpleText.vue")
+    },
+    {
+      path: "/email",
+      name: "email",
+      component: () => import("../views/EmailView.vue")
+    },
+    {
+      path: "/sms",
+      name: "sms",
+      component: () => import("../views/SmsView.vue")
+    },
+    {
+      path: "/lecture",
+      name: "lecture",
+      component: () => import("../views/LectureView.vue")
     }
   ]
 })

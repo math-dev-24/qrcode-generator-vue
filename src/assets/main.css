@@ -18,7 +18,7 @@ ul{
     }
 }
 
-input, select{
+input, select, textarea{
     @apply rounded-md py-1 px-2 outline-0 focus:outline-2 outline-stone-400 outline-offset-2;
 }
 input[type="color"]{

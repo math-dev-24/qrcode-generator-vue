@@ -1,13 +1,14 @@
 <template>
   <h1>Page principale</h1>
-  <div class="my-2">
-    <span
+  <div class="p-16">
+    <router-link
       v-for="mode in MODE"
-      class="p-2 rounded border m-2 hover:bg-slate-600 cursor-pointer"
+      class="p-2 rounded border m-2 hover:bg-stone-200 bg-stone-50 cursor-pointer p-8"
       :key="mode.path"
+      :to="mode.path"
     >
-      <router-link :to="mode.path">{{ mode.name }}</router-link>
-    </span>
+      {{ mode.name }}
+    </router-link>
   </div>
 </template>
 

@@ -23,5 +23,9 @@ export const MODE: ModeInterface[] = [
   {
     name: "SMS",
     path: "/sms"
+  },
+  {
+    name: "Lecture",
+    path: "/lecture"
   }
 ]

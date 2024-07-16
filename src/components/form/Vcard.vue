@@ -50,7 +50,26 @@
       <div class="form_group">
         <label for="country">Pays :</label>
         <input type="text" id="country" v-model="currentQr.address.country"/>
+      </div>
+      <div class="form_group">
+        <label for="margin" id="margin" class="block my-1 font-bold">Marge :</label>
+        <input type="number" id="margin" v-model="margin" min="0" max="10"/>
+      </div>
+      <div></div>
+      <div class="form_group">
+        <label for="background" class="block my-1 font-bold">Couleur des cubes :</label>
+        <div>
+          <input type="color" id="background" v-model="background"/>
+          <span class="text-center italic mx-1">{{ background }}</span>
         </div>
+      </div>
+      <div class="form_group">
+        <label for="foreground" class="block my-1 font-bold">Couleur de fond :</label>
+        <div>
+          <input type="color" id="foreground" v-model="foreground"/>
+          <span class="text-center italic mx-1">{{ foreground }}</span>
+        </div>
+      </div>
     </div>
     <button
       @click="generate"
@@ -87,15 +106,17 @@ const currentQr = ref<VCardInterface>({
     country: "USA"
   }
 })
+const margin = ref<number>(1)
+const background = ref<string>("#ffffff")
+const foreground = ref<string>("#000000")
 
 function generate(){
-  console.log("click")
   const tmp_qr: QrInterface = {
     id: nanoid(),
     value: generateVcard(currentQr.value),
-    margin: 0,
-    background: "#ffffff",
-    foreground: "#000000",
+    margin: margin.value,
+    background: background.value,
+    foreground: foreground.value,
     type: "vcard"
   }
   useQrStore().addQr(tmp_qr)
