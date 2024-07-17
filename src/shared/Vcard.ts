@@ -12,7 +12,7 @@ FN:${content.name}
 TITLE:${content.job}
 ${phones}
 EMAIL;TYPE=PREF,INTERNET:${content.email}
-ADR;TYPE=WORK:;;${content.address.street};${content.address.city};${content.address.state};${content.address.zip};${content.address.country}
+ADR;TYPE=WORK:;;${content.address.street};${content.address.city};${content.address.zip};${content.address.country}
 URL:${content.website}
 ORG:${content.company}
 END:VCARD`;

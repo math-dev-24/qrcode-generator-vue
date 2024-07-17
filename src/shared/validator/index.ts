@@ -4,11 +4,15 @@ export function checkEmail(email: string): boolean {
 }
 
 export function checkPhone(phone: string): boolean {
-  const regex = /^\+[0-9]{1,3}-[0-9]{3}-[0-9]{4}$/;
+  const regex = /^\+\d{1,3}\s?\d{4,14}$/;
   return regex.test(phone);
 }
 
 export function checkUrl(url: string): boolean {
   const regex = /^(https?:\/\/)?(www\.)?[-\w@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/;
   return regex.test(url);
+}
+
+export function checkPhoneType(type: string): boolean {
+  return ["Work", "Home", "Mobile", "Fax", "Other"].includes(type);
 }

@@ -19,15 +19,18 @@ ul{
 }
 
 input, select, textarea{
-    @apply rounded-md py-1 px-2 outline-0 focus:outline-2 outline-stone-400 outline-offset-2;
+    @apply rounded-md py-1 px-2 outline-0 focus:outline-2 outline-stone-400 outline-offset-2 border border-stone-300;
 }
 input[type="color"]{
     @apply w-1/6 p-0.5;
 }
 
 .form_group{
-    @apply flex flex-col gap-2;
+    @apply flex flex-col gap-2 my-0.5;
     label{
-        @apply text-sm font-bold;
+        @apply text-sm font-bold mt-1 mb-0 p-0;
+    }
+    span.info{
+        @apply text-xs text-stone-500 italic m-0;
     }
 }

@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col min-h-screen m-0 p-0">
     <Header />
-    <section class="flex-1 p-4">
-      <router-view />
+    <section class="flex-1 p-4 bg-stone-100">
+      <router-view></router-view>
     </section>
     <Footer />
   </div>

@@ -9,14 +9,15 @@ export interface VCardInterface {
   address: {
     street: string,
     city: string,
-    state: string,
     zip: string,
     country: string
   }
 }
 
+export type PhoneType = "Work" | "Home" | "Mobile" | "Fax" | "Other"
+
 export interface PhoneInterface {
   id: string,
-  type: "Work" | "Home" | "Mobile" | "Fax" | "Other",
+  type: PhoneType,
   number: string
 }
