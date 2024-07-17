@@ -1,13 +1,12 @@
 <template>
-  <h1 class="text-center text-2xl uppercase font-bold">Générer un QR</h1>
-  <div class="grid grid-cols-12 gap-2 md:mx-10">
+  <div class="grid grid-cols-12 gap-2">
     <section class="container mx-auto border my-6 p-6 rounded-l drop-shadow hover:drop-shadow bg-white col-span-8">
       <div class="grid grid-cols-6 gap-4">
         <div
           v-for="mode in MODE"
           :key="mode.name"
           :class="qrStore.currentQr.type === mode.name ? 'bg-stone-700 text-white' : 'hover:bg-stone-200 bg-stone-50 hover:outline-2 hover:outline outline-stone-400'"
-          class="rounded border cursor-pointer p-2 transition-all duration-150 text-center font-bold"
+          class="text-sm md:text-base rounded border cursor-pointer p-2 transition-all duration-150 text-center font-semibold"
           @click="setType(mode.name)"
         >
           {{ mode.emoji }} {{ mode.label }}
@@ -57,7 +56,7 @@
     </section>
     <aside
       class="container mx-auto border my-6 p-6 rounded-r hover:outline-2 hover:outline outline-stone-400 col-span-4 bg-white drop-shadow">
-      <QRCODE v-if="qrStore.is_generated && qrStore.list.length > 0" :qr="qrStore.getLastQr" />
+      <QRCODE v-if="qrStore.is_generated && qrStore.generateQr" :qr="qrStore.generateQr" />
       <div v-else
            class="text-center border-2 h-[200px] w-[200px] bg-stone-50 rounded flex flex-col items-center justify-center m-auto"></div>
     </aside>

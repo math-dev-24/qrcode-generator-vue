@@ -5,21 +5,21 @@ import { nanoid } from 'nanoid'
 interface QrStoreInterface {
   currentQr: QrInterface;
   list: QrInterface[];
+  generateQr: QrInterface|null;
   alert_message: string[];
   is_generated: boolean;
 }
-
 
 export const useQrStore = defineStore('qr', {
   state: (): QrStoreInterface => ({
     list: [],
     currentQr: defaultQr,
     alert_message: [],
+    generateQr: null,
     is_generated: false,
   }),
   getters: {
     getList: (state) => state.list,
-    getLastQr: (state) => state.list[state.list.length - 1]
   },
   actions: {
     resetQr() {
@@ -39,8 +39,11 @@ export const useQrStore = defineStore('qr', {
         created_at: new Date().toISOString()
       };
       this.list.push(tmp_qr_code);
-      this.is_generated = true;
+      this.generateQr = tmp_qr_code;
       this.resetQr();
+      setTimeout(() => {
+        this.is_generated = true;
+      }, 500)
     },
     deleteQr(qr: QrInterface) {
       this.list = this.list.filter(item => item.id !== qr.id);
