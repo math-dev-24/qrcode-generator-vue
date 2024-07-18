@@ -43,7 +43,7 @@ export const useQrStore = defineStore('qr', {
       this.resetQr();
       setTimeout(() => {
         this.is_generated = true;
-      }, 500)
+      }, 200)
     },
     deleteQr(qr: QrInterface) {
       this.list = this.list.filter(item => item.id !== qr.id);
