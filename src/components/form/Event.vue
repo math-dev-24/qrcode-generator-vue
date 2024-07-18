@@ -58,6 +58,7 @@ import { CalendarIcon } from '@heroicons/vue/24/outline'
 import moment from 'moment'
 import type { EventDetails } from '@/shared/Event'
 import { generateEventQRCode } from '@/shared/Event'
+import { COLOR_PALETTE } from '@/shared/data/colorPalette'
 
 const current = reactive<EventDetails>({
   title: "",
@@ -74,10 +75,12 @@ const emit = defineEmits<{
 
 onMounted(() => {
   checkForm()
+  getColor()
 })
 
 watch(current, () => {
   checkForm()
+  getColor()
 })
 
 function checkForm() {
@@ -132,7 +135,14 @@ function deltaHours(){
     response += ` ${delta_m} minutes`
   }
   return response
+}
 
+function getColor() {
+  const type: string = current.type === "Apple" ? "eventApple" : "eventGoogle"
+  const index = COLOR_PALETTE.findIndex(color => color.name === type)
+  const color = COLOR_PALETTE[index]
+  useQrStore().currentQr.background = color.background
+  useQrStore().currentQr.foreground = color.foreground
 }
 
 </script>

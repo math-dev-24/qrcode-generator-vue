@@ -40,8 +40,8 @@
         <template v-else-if="qrStore.currentQr.type === 'event'">
           <Event @generateQr="generateQr" />
         </template>
-        <template v-else-if="qrStore.currentQr.type === 'twitter'">
-          <Twitter @generateQr="generateQr" />
+        <template v-else-if="qrStore.currentQr.type === 'social'">
+          <Social @generateQr="generateQr" />
         </template>
         <template v-else>
           <div>Aucun type de QR</div>
@@ -52,7 +52,7 @@
         class="p-4 m-2 border border-red-700 rounded hover:drop-shadow bg-red-50 text-red-600 hover:outline-2 hover:outline outline-red-400"
       >
         <ul class="list-disc">
-          <li v-for="message in qrStore.alert_message" :key="message" class="text-red-600 font-bold">- {{ message }}
+          <li v-for="message in qrStore.alert_message" :key="message" class="text-red-600 font-semibold">- {{ message }}
           </li>
         </ul>
       </aside>
@@ -81,7 +81,8 @@ import Wifi from '@/components/form/Wifi.vue'
 import Paypal from '@/components/form/Paypal.vue'
 import Appel from '@/components/form/Appel.vue'
 import Event from '@/components/form/Event.vue'
-import Twitter from '@/components/form/Twitter.vue'
+import Social from '@/components/form/Social.vue'
+import { COLOR_PALETTE } from '@/shared/data/colorPalette'
 
 const qrStore = useQrStore()
 
@@ -90,6 +91,8 @@ function setType(type: QrType) {
   qrStore.currentQr.type = type
   qrStore.resetAlert()
   qrStore.is_generated = false
+  qrStore.currentQr.background = COLOR_PALETTE[0].background
+  qrStore.currentQr.foreground = COLOR_PALETTE[0].foreground
 }
 
 watch(qrStore.currentQr, () => {

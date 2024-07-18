@@ -53,8 +53,8 @@ export const MODE: ModeInterface[] = [
     emoji: "📅"
   },
   {
-    name: "twitter",
-    label: "Twitter",
-    emoji: "🐦"
+    name: "social",
+    label: "Social",
+    emoji: "🐦",
   }
 ]
