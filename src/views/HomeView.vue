@@ -40,6 +40,9 @@
         <template v-else-if="qrStore.currentQr.type === 'event'">
           <Event @generateQr="generateQr" />
         </template>
+        <template v-else-if="qrStore.currentQr.type === 'twitter'">
+          <Twitter @generateQr="generateQr" />
+        </template>
         <template v-else>
           <div>Aucun type de QR</div>
         </template>
@@ -78,6 +81,7 @@ import Wifi from '@/components/form/Wifi.vue'
 import Paypal from '@/components/form/Paypal.vue'
 import Appel from '@/components/form/Appel.vue'
 import Event from '@/components/form/Event.vue'
+import Twitter from '@/components/form/Twitter.vue'
 
 const qrStore = useQrStore()
 

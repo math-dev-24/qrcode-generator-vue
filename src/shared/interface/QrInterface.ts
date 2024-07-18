@@ -1,4 +1,4 @@
-export type QrType = "url" | "vcard" | "text" | "email" | "sms" | "wifi" | "paypal" | "whatsapp" | "image" | "qrcode" | "call" | "event";
+export type QrType = "url" | "vcard" | "text" | "email" | "sms" | "wifi" | "paypal" | "whatsapp" | "image" | "qrcode" | "call" | "event" | "twitter" | "tweet";
 
 export interface QrInterface {
     id: string;

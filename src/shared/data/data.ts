@@ -51,5 +51,10 @@ export const MODE: ModeInterface[] = [
     name: "event",
     label: "Evénement",
     emoji: "📅"
+  },
+  {
+    name: "twitter",
+    label: "Twitter",
+    emoji: "🐦"
   }
 ]
