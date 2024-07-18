@@ -22,8 +22,8 @@ function generateGoogleEventQRCode(event: EventDetails): string {
 }
 
 function generateAppleEventQRCode(event: EventDetails): string {
-  const startDate = moment(event.startDate).format("YYYYMMDDTHHmmssZ")
-  const endDate = moment(event.endDate).format("YYYYMMDDTHHmmssZ")
+  const startDate = moment(event.startDate).format("YYYYMMDDTHHmmss")
+  const endDate = moment(event.endDate).format("YYYYMMDDTHHmmss")
 
   return `
 BEGIN:VCALENDAR
@@ -36,5 +36,5 @@ LOCATION:${event.location}
 DESCRIPTION:${event.description}
 END:VEVENT
 END:VCALENDAR
-  `;
+  `.trim();
 }
