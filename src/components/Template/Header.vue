@@ -7,6 +7,3 @@
     </ul>
   </header>
 </template>
-<script setup lang="ts">
-import { MODE } from '@/shared/data/data'
-</script>
