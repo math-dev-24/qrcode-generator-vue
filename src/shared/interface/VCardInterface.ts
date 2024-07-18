@@ -19,5 +19,6 @@ export type PhoneType = "Work" | "Home" | "Mobile" | "Fax" | "Other"
 export interface PhoneInterface {
   id: string,
   type: PhoneType,
-  number: string
+  number: string,
+  country_code: string
 }
