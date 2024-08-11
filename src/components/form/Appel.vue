@@ -49,8 +49,7 @@ function checkForm() {
   }else{
     useQrStore().removeAlert("Le numéro de téléphone est vide")
   }
-  const tmp_phone: string = `${current.countryCode}${current.phone}`
-  if(!checkPhone(tmp_phone)) {
+  if(!checkPhone(current.phone)) {
     useQrStore().addAlert("Le numéro de téléphone est invalide")
   }else{
     useQrStore().removeAlert("Le numéro de téléphone est invalide")

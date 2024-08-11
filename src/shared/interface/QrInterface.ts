@@ -9,4 +9,6 @@ export interface QrInterface {
     type: QrType;
     like: boolean;
     created_at: string;
+    rounded: boolean;
+    spacing: number;
 }

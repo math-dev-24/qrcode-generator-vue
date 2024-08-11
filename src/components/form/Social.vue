@@ -49,11 +49,11 @@ const value = ref<string>("")
 function generate() {
   let tmp_content: string = ""
   if(mode.value === "twitter") {
-    tmp_content = `https://twitter.com/${value.value}`
+    tmp_content = `https://twitter.com/${encodeURIComponent(value.value)}`
   }else if(mode.value === "youtube") {
-    tmp_content = `https://www.youtube.com/channel/@${value.value}`
+    tmp_content = `https://www.youtube.com/channel/${encodeURIComponent(value.value.replace('@', ''))}`
   }else if(mode.value === "tweet") {
-    tmp_content = `https://twitter.com/intent/tweet?text=${value.value}`
+    tmp_content = `https://twitter.com/intent/tweet?text=${encodeURIComponent(value.value)}`
   }
   qrStore.addQr(tmp_content)
 }

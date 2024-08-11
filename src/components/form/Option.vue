@@ -29,6 +29,14 @@
           <span class="text-center italic mx-1">{{ qrStore.currentQr.foreground }}</span>
         </div>
       </div>
+      <div>
+        <label for="rounded">Arrondir le QR code :</label>
+        <input id="rounded" v-model="qrStore.currentQr.rounded" type="checkbox" class="m-1 p-1"/>
+      </div>
+      <div>
+        <label for="spacing">Espacement :</label>
+        <input id="spacing" v-model="qrStore.currentQr.spacing" max="10" min="0" type="number" />
+      </div>
     </div>
   </section>
 </template>
