@@ -51,7 +51,7 @@ function generate() {
   if(mode.value === "twitter") {
     tmp_content = `https://twitter.com/${value.value}`
   }else if(mode.value === "youtube") {
-    tmp_content = `https://www.youtube.com/channel/${value.value}`
+    tmp_content = `https://www.youtube.com/channel/@${value.value}`
   }else if(mode.value === "tweet") {
     tmp_content = `https://twitter.com/intent/tweet?text=${value.value}`
   }
