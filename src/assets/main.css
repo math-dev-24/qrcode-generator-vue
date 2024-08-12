@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+* {
+    @apply text-sm md:text-base;
+}
+
 h1{
-    @apply text-xl font-bold px-1 py-2;
+    @apply text-2xl font-bold px-1 py-2;
 }
 
 ul{
@@ -33,4 +38,11 @@ input[type="color"]{
     span.info{
         @apply text-xs text-stone-500 italic m-0;
     }
+}
+
+.img-qr{
+    @apply m-auto;
+}
+.btn-download{
+    @apply text-center w-full p-1 mx-auto mt-4 rounded bg-stone-50 hover:bg-stone-100 hover:outline-2 hover:outline outline-stone-400 transition-all duration-150 text-sm;
 }

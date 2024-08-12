@@ -47,6 +47,12 @@
         <select class="m-1 p-1" v-model="qrStore.currentQr.conersDotsOptions.type">
           <option v-for="i in QrConstConersDots" :value="i" :key="i">{{i}}</option>
         </select>
+        <SelectModeColor
+          v-model:mode="qrStore.currentQr.conersDotsOptions.gradient.mode"
+          v-model:color1="qrStore.currentQr.conersDotsOptions.gradient.color1"
+          v-model:color2="qrStore.currentQr.conersDotsOptions.gradient.color2"
+          v-model:rotate="qrStore.currentQr.conersDotsOptions.gradient.rotation"
+        />
       </div>
       <div class="form_group col-span-2">
         <label for="background">Couleur de fond :</label>

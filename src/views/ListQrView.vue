@@ -4,7 +4,7 @@
     <div class="grid md:grid-cols-3 gap-4" v-if="useQrStore().list.length > 0">
       <QRCard  v-for="qr in useQrStore().list" :key="qr.id" :qr="qr" />
     </div>
-    <div v-else class="text-center font-bold border p-16 my-6 bg-stone-200 rounded flex flex-col items-center justify-center hover:drop-shadow-lg transition-all duration-300">
+    <div v-else class="text-center font-bold border p-16 my-6 bg-stone-200 rounded flex flex-col items-center justify-center hover:drop-shadow transition-all duration-300">
       <span class="text-2xl">Aucun QR Code créé</span>
       <router-link to="/" class="text-stone-500 hover:text-black text-xl mt-4 flex items-center justify-center gap-1">
         <PlusCircleIcon class="size-6" />

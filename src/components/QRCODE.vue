@@ -13,7 +13,9 @@
       :cornersDotOptions="getOptionsWithType(qr.conersDotsOptions)"
       :backgroundOptions="getBackgroundOptions(qr.backgroundOptions.gradient)"
       :download="true"
-      downloadButton="my-button"
+      myclass="img-qr"
+      imgclass="img-qr"
+      downloadButton="btn-download"
       :downloadOptions="{ name: 'qrcode', extension: 'png' }"
     />
   </div>
@@ -67,7 +69,4 @@ const getBackgroundOptions = (qr: OptionsGradient) => {
   }
   return tmp
 }
-
-
-
 </script>

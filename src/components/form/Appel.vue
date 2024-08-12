@@ -1,5 +1,5 @@
 <template>
-  <section class="grid grid-cols-2 gap-4">
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-4">
     <div class="form_group">
       <label for="">Country Code : <span class="text-red-600">*</span></label>
       <span class="info">_</span>
