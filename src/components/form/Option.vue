@@ -70,6 +70,7 @@
             {{ i.name }}
           </div>
         </div>
+        <img v-if="qrStore.currentQr.image" :src="qrStore.currentQr.image" class="w-8 h-8 object-cover" />
         <div @click="setImage('')" class="text-red-500 cursor-pointer">Supprimer</div>
       </div>
     </div>
@@ -92,7 +93,6 @@ const listImage = [
   {name: "twitter", image: 'twitter.svg', },
   {name: 'instagram', image: 'instagram.svg', },
   {name: 'github', image: 'github.svg', },
-
 ]
 
 const qrStore = useQrStore()
