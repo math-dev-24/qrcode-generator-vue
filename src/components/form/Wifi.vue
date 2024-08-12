@@ -12,10 +12,9 @@
       <label for="security">Sécurité : <span class="text-red-600">*</span></label>
       <select id="security" v-model="current.security">
         <optgroup label="Sécurité">
-          <option value="none">Aucune</option>
-          <option value="wep">WEP</option>
-          <option value="wpa">WPA</option>
-          <option value="wpa2">WPA2</option>
+          <option value="WEP">WEP</option>
+          <option value="WPA">WPA</option>
+          <option value="WPA2">WPA2</option>
         </optgroup>
       </select>
     </div>
