@@ -31,7 +31,7 @@
         />
       </div>
       <div class="form_group col-span-2">
-        <label for="square">Design square :</label>
+        <label for="square">Design des bords du coins :</label>
         <select id="square" v-model="qrStore.currentQr.conersSquareOptions.type" class="m-1 p-1">
           <option v-for="i in QrConstConersSquare" :value="i" :key="i">{{i}}</option>
         </select>
@@ -43,7 +43,7 @@
         />
       </div>
       <div class="form_group col-span-2">
-        <label for="dotCorner">conersDotsOptions</label>
+        <label for="dotCorner">Design des points aux coins :</label>
         <select class="m-1 p-1" v-model="qrStore.currentQr.conersDotsOptions.type">
           <option v-for="i in QrConstConersDots" :value="i" :key="i">{{i}}</option>
         </select>
@@ -60,7 +60,7 @@
       <div class="form_group col-span-2">
         <label for="background">Image :</label>
         <input id="image" type="file" class="m-1 p-1" @change="getFile($event)" />
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-2"> Pré défini :
           <div
             v-for="i in listImage" :key="i.name"
             @click="setImage(i.image)"
@@ -70,7 +70,7 @@
             {{ i.name }}
           </div>
         </div>
-        <img v-if="qrStore.currentQr.image" :src="qrStore.currentQr.image" class="w-8 h-8 object-cover" />
+        <img v-if="qrStore.currentQr.image" :src="qrStore.currentQr.image" class="w-8 h-8 object-cover" alt="temporyQrCode" />
         <div @click="setImage('')" class="text-red-500 cursor-pointer">Supprimer</div>
       </div>
     </div>
