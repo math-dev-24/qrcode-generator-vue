@@ -1,7 +1,7 @@
 <template>
   <h1 class="text-center text-2xl uppercase font-bold">Liste des QR</h1>
   <section class="container mx-auto">
-    <div class="grid grid-cols-3 gap-4" v-if="useQrStore().list.length > 0">
+    <div class="grid md:grid-cols-3 gap-4" v-if="useQrStore().list.length > 0">
       <QRCard  v-for="qr in useQrStore().list" :key="qr.id" :qr="qr" />
     </div>
     <div v-else class="text-center font-bold border p-16 my-6 bg-stone-200 rounded flex flex-col items-center justify-center hover:drop-shadow-lg transition-all duration-300">

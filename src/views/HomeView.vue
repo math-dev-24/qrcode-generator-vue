@@ -1,7 +1,7 @@
 <template>
-  <div class="grid grid-cols-12 gap-2">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-2">
     <section class="container mx-auto border my-6 p-6 rounded-l drop-shadow hover:drop-shadow bg-white col-span-8">
-      <div class="grid grid-cols-6 gap-4">
+      <div class="grid md:grid-cols-6 gap-4">
         <div
           v-for="mode in MODE"
           :key="mode.name"
@@ -58,7 +58,7 @@
       </aside>
     </section>
     <aside
-      class="container mx-auto border my-6 p-6 rounded-r hover:outline-2 hover:outline outline-stone-400 col-span-4 bg-white drop-shadow">
+      class="mx-auto w-full border my-6 p-6 rounded-r hover:outline-2 hover:outline outline-stone-400 col-span-4 bg-white drop-shadow">
       <QRCODE v-if="qrStore.is_generated && qrStore.generateQr" :qr="qrStore.generateQr" />
       <div v-else
            class="text-center border-2 h-[200px] w-[200px] bg-stone-50 rounded flex flex-col items-center justify-center m-auto"></div>
