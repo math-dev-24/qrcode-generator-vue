@@ -1,0 +1,34 @@
+<script setup lang="ts">
+
+const mode = defineModel<string>('mode')
+const color1 = defineModel<string>('color1')
+const color2 = defineModel<string>('color2')
+const rotate = defineModel<number>('rotate')
+
+</script>
+
+<template>
+  <div class="flex gap-2">
+    <div class="flex flex-col gap-2 flex-1">
+      <label>
+        Couleur :
+        <select id="mode" v-model="mode" class="m-1 p-1 flex-2">
+          <option value="single">single</option>
+          <option value="multiple">multiple</option>
+        </select>
+      </label>
+      <div class="flex items-center gap-2 w-full justify-around flex-1">
+        <input id="color1" v-model="color1" type="color"
+               class="w-[40px] h-[40px] block flex-1"
+        />
+        <input v-if="mode === 'multiple'" id="color2" v-model="color2" type="color"
+               class="w-[40px] h-[40px] block flex-1"
+        />
+      </div>
+    </div>
+    <div class="form_group flex-1">
+      <label for="rotate">Choix rotation du gradient :</label>
+      <input type="number" v-model="rotate" />
+    </div>
+  </div>
+</template>

@@ -82,7 +82,6 @@ import Paypal from '@/components/form/Paypal.vue'
 import Appel from '@/components/form/Appel.vue'
 import Event from '@/components/form/Event.vue'
 import Social from '@/components/form/Social.vue'
-import { COLOR_PALETTE } from '@/shared/data/colorPalette'
 
 const qrStore = useQrStore()
 
@@ -91,8 +90,6 @@ function setType(type: QrType) {
   qrStore.currentQr.type = type
   qrStore.resetAlert()
   qrStore.is_generated = false
-  qrStore.currentQr.background = COLOR_PALETTE[0].background
-  qrStore.currentQr.foreground = COLOR_PALETTE[0].foreground
 }
 
 watch(qrStore.currentQr, () => {

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { QrInterface, QrType } from '@/shared/interface/QrInterface'
+import type { QrInterface } from '@/shared/interface/QrInterface'
 import { nanoid } from 'nanoid'
 
 interface QrStoreInterface {
@@ -23,20 +23,22 @@ export const useQrStore = defineStore('qr', {
   },
   actions: {
     resetQr() {
-      const tmp_type: QrType = this.currentQr.type;
-      this.currentQr = { ...defaultQr, type: tmp_type };
+      this.currentQr = {...this.currentQr, value: ""};
     },
     addQr(text: string) {
       this.is_generated = false;
       const tmp_qr_code: QrInterface = {
         id: nanoid(),
+        size: this.currentQr.size,
         value: text,
-        margin: this.currentQr.margin,
-        background: this.currentQr.background,
-        foreground: this.currentQr.foreground,
         type: this.currentQr.type,
-        like: false,
-        created_at: new Date().toISOString()
+        margin: this.currentQr.margin,
+        dotsOptions: this.currentQr.dotsOptions,
+        conersSquareOptions: this.currentQr.conersSquareOptions,
+        conersDotsOptions: this.currentQr.conersDotsOptions,
+        backgroundOptions: this.currentQr.backgroundOptions,
+        created_at: new Date().toISOString(),
+        image: this.currentQr.image
       };
       this.list.push(tmp_qr_code);
       this.generateQr = tmp_qr_code;
@@ -65,11 +67,45 @@ export const useQrStore = defineStore('qr', {
 
 const defaultQr: QrInterface = {
   id: "",
-  value: "",
-  margin: 0,
-  background: "#000000",
-  foreground: "#ffffff",
   type: "url",
-  like: false,
+  value: "",
+  size: 300,
+  margin: 0,
+  dotsOptions: {
+    type: "rounded",
+    gradient: {
+      mode: "single",
+      color1: "#000000",
+      color2: "#ff0000",
+      rotation: 0
+    }
+  },
+  conersSquareOptions: {
+    type: "square",
+    gradient: {
+      mode: "multiple",
+      color1: "#000000",
+      color2: "#ff0000",
+      rotation: 0,
+    }
+  },
+  conersDotsOptions: {
+    type: "none",
+    gradient: {
+      mode: "multiple",
+      color1: "#000000",
+      color2: "#ff0000",
+      rotation: 0,
+    }
+  },
+  backgroundOptions: {
+    gradient: {
+      mode: "single",
+      color1: "#ffffff",
+      color2: "#1051c8",
+      rotation: 0,
+    }
+  },
+  image: "",
   created_at: new Date().toISOString()
 }

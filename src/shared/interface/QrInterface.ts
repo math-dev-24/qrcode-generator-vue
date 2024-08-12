@@ -1,14 +1,46 @@
 export type QrType = "url" | "vcard" | "text" | "email" | "sms" | "wifi" | "paypal" | "whatsapp" | "image" | "qrcode" | "call" | "event" | "social";
 
+
+export type QrTypeRounded = 'rounded' | 'dots' | 'classy' | 'classy-rounded' | 'square' | 'extra-rounded'
+export const QrConstRounded: QrTypeRounded[] =["rounded", 'dots', 'classy', 'classy-rounded', 'square', 'extra-rounded']
+export type QrTypeConersSquare = 'none' | 'square' | "dot" | 'extra-rounded'
+export const QrConstConersSquare: QrTypeConersSquare[] = ['none', 'square', 'dot', 'extra-rounded']
+export type QrTypeConersDots = 'none' | 'dot' | 'square'
+export const QrConstConersDots: QrTypeConersDots[] = ["none", "square", "dot"]
+
+export interface OptionsGradient {
+    mode: "single" | "multiple";
+    color1: string;
+    color2: string;
+    rotation: number;
+}
+
+export interface OptionsGradientType {
+    type: QrTypeConersDots | QrTypeConersSquare | QrTypeRounded;
+    gradient: OptionsGradient;
+}
+
 export interface QrInterface {
     id: string;
-    value: string;
+    type: string;
+    size: number;
     margin: number;
-    background: string;
-    foreground: string;
-    type: QrType;
-    like: boolean;
+    value: string;
+    dotsOptions: {
+        type: QrTypeRounded
+        gradient: OptionsGradient
+    }
+    conersSquareOptions: {
+        type: QrTypeConersSquare;
+        gradient: OptionsGradient;
+    }
+    conersDotsOptions: {
+        type: QrTypeConersDots;
+        gradient: OptionsGradient;
+    }
+    backgroundOptions: {
+        gradient: OptionsGradient;
+    }
+    image: string;
     created_at: string;
-    rounded: boolean;
-    spacing: number;
 }

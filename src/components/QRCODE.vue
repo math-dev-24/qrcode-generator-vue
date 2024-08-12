@@ -1,61 +1,73 @@
 <template>
   <div class="py-6">
-    <canvas ref="canvas" class="m-auto hover:scale-105 hover:shadow-lg transition-all duration-150"></canvas>
-    <span
-      @click="downloadPNG()"
-      class="hover:underline text-stone-500 hover:text-black text-sm cursor-pointer mt-2 text-center w-1/3 m-auto flex justify-center items-center"
-    >
-      <ArrowDownOnSquareIcon class="size-4" />
-      Download
-    </span>
+    <QRCodeVue3
+      :height="qr.size"
+      :width="qr.size"
+      :value="qr.value"
+      :margin="qr.margin || undefined"
+      :image="qr.image"
+      :imageOptions="{ hideBackgroundDots: true, imageSize: 0.2, margin: 0, crossOrigin: 'anonymous' }"
+      :qrOptions="{ typeNumber: 0, mode: 'Byte', errorCorrectionLevel: 'H' }"
+      :dotsOptions="getOptionsWithType(qr.dotsOptions)"
+      :cornersSquareOptions="getOptionsWithType(qr.conersSquareOptions)"
+      :cornersDotOptions="getOptionsWithType(qr.conersDotsOptions)"
+      :backgroundOptions="getBackgroundOptions(qr.backgroundOptions.gradient)"
+      :download="true"
+      downloadButton="my-button"
+      :downloadOptions="{ name: 'qrcode', extension: 'png' }"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import QRCode from 'qrcode';
-import { onMounted, ref, defineProps } from 'vue'
-import type { QrInterface } from '@/shared/interface/QrInterface'
-import { ArrowDownOnSquareIcon } from '@heroicons/vue/24/outline'
+import { defineProps } from 'vue'
+import QRCodeVue3 from "qrcode-vue3";
+import type { OptionsGradient, OptionsGradientType, QrInterface } from '@/shared/interface/QrInterface'
 
-const props = defineProps<{
+const { qr } = defineProps<{
   qr: QrInterface
 }>()
 
-const canvas = ref<HTMLCanvasElement | null>(null)
-const vcard = props.qr.value
-
-onMounted(() => {
-  generateQRCode()
-  if(canvas.value){
-    canvas.value.style.width = '170px'
-    canvas.value.style.height = '170px'
+const getOptionsWithType = (qr: OptionsGradientType) => {
+  let tmp = {
+    type: qr.type,
+    color: qr.gradient.color1,
   }
-})
-
-function generateQRCode() {
-  if (canvas.value) {
-    QRCode.toCanvas(
-      canvas.value,
-      vcard,
-      {
-        color: {
-          dark: props.qr.background,
-          light: props.qr.foreground,
-        },
-        margin:props.qr.margin,
-        errorCorrectionLevel: 'H'
-      }
-    )
+  if(qr.gradient.mode === "multiple"){
+    const rotate: number = qr.gradient.rotation > 100 ? 100 : qr.gradient.rotation < 0 ? 0 : qr.gradient.rotation
+    // @ts-ignore
+  return {...tmp, gradient: {
+      type: "linear",
+      colorStops: [
+        { offset: 0, color: qr.gradient.color1},
+        { offset: 1, color: qr.gradient.color2 },
+      ],
+      rotation: rotate }
+    }
   }
+  return tmp
 }
 
-function downloadPNG() {
-  if (canvas.value) {
-    const url = canvas.value.toDataURL('image/svg')
-    const link = document.createElement('a')
-    link.download = 'qrcode.png'
-    link.href = url
-    link.click()
+const getBackgroundOptions = (qr: OptionsGradient) => {
+  const rotate: number = qr.rotation > 100 ? 100 : qr.rotation < 0 ? 0 : qr.rotation
+  let tmp = {
+    color: qr.color1,
+    gradient: null
   }
+  if(qr.mode === "multiple"){
+    // @ts-ignore
+    return {...tmp, gradient: {
+      type: "linear",
+      colorStops: [
+        { offset: 0, color: qr.color1},
+        { offset: 1, color: qr.color2 },
+      ],
+      rotation: rotate }
+    }
+  }
+  return tmp
 }
+
+
+
 </script>

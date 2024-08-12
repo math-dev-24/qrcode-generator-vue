@@ -60,12 +60,10 @@ function generate() {
 
 onMounted(() => {
   checkForm()
-  getColor()
 })
 
 watch([value, mode], () => {
   checkForm()
-  getColor()
 })
 
 function checkForm() {
@@ -81,11 +79,5 @@ function checkForm() {
   }
 }
 
-function getColor() {
-  const index = COLOR_PALETTE.findIndex(color => color.name === mode.value)
-  const color = COLOR_PALETTE[index]
-  qrStore.currentQr.background = color.background
-  qrStore.currentQr.foreground = color.foreground
-}
 
 </script>
