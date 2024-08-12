@@ -83,7 +83,7 @@ const defaultQr: QrInterface = {
   conersSquareOptions: {
     type: "square",
     gradient: {
-      mode: "multiple",
+      mode: "single",
       color1: "#000000",
       color2: "#ff0000",
       rotation: 0,
@@ -92,7 +92,7 @@ const defaultQr: QrInterface = {
   conersDotsOptions: {
     type: "none",
     gradient: {
-      mode: "multiple",
+      mode: "single",
       color1: "#000000",
       color2: "#ff0000",
       rotation: 0,
