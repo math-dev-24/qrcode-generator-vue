@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-12 md:gap-2">
+  <div>
     <section class="container mx-auto border my-2 p-2 md:my-6 md:p-6 rounded-l drop-shadow hover:drop-shadow bg-white col-span-8">
       <div class="grid md:grid-cols-6 gap-0.5 md:gap-2">
         <div
@@ -57,13 +57,14 @@
         </ul>
       </aside>
     </section>
-    <aside
-      class="mx-auto w-full border my-6 p-6 rounded-r hover:outline-2 hover:outline outline-stone-400 col-span-4 bg-white drop-shadow">
-      <QRCODE v-if="qrStore.is_generated && qrStore.generateQr" :qr="qrStore.generateQr" />
-      <div v-else
-           class="text-center border-2 h-[200px] w-[200px] bg-stone-50 rounded flex flex-col items-center justify-center m-auto"></div>
-    </aside>
   </div>
+  <aside
+    v-if="qrStore.is_generated && qrStore.generateQr"
+    class="md:fixed md:bottom-4 md:right-4 bg-white
+    rounded md:w-[430px] md:h-[430px] drop-shadow md:drop-shadow-2xl"
+  >
+    <QRCODE :qr="qrStore.generateQr" />
+  </aside>
 </template>
 
 <script lang="ts" setup>

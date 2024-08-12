@@ -45,7 +45,7 @@ const current = reactive<{
 }>({
   ssid: "",
   password: "",
-  security: "none",
+  security: "WPA2",
   hidden: false
 })
 
