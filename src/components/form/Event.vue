@@ -75,12 +75,10 @@ const emit = defineEmits<{
 
 onMounted(() => {
   checkForm()
-  getColor()
 })
 
 watch(current, () => {
   checkForm()
-  getColor()
 })
 
 function checkForm() {
@@ -137,12 +135,5 @@ function deltaHours(){
   return response
 }
 
-function getColor() {
-  const type: string = current.type === "Apple" ? "eventApple" : "eventGoogle"
-  const index = COLOR_PALETTE.findIndex(color => color.name === type)
-  const color = COLOR_PALETTE[index]
-  useQrStore().currentQr.background = color.background
-  useQrStore().currentQr.foreground = color.foreground
-}
 
 </script>
