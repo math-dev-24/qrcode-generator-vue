@@ -38,6 +38,8 @@ export const defaultTheme: DefaultThemeInterface = {
       mode: "single",
       color1: "#000000",
       color2: "#ff0000",
+      color3: "#ff7575",
+      percent_color2: 50,
       rotation: 0
     }
   },
@@ -47,6 +49,8 @@ export const defaultTheme: DefaultThemeInterface = {
       mode: "single",
       color1: "#000000",
       color2: "#ff0000",
+      color3: "#ff7575",
+      percent_color2: 50,
       rotation: 0,
     }
   },
@@ -56,6 +60,8 @@ export const defaultTheme: DefaultThemeInterface = {
       mode: "single",
       color1: "#000000",
       color2: "#ff0000",
+      color3: "#ff7575",
+      percent_color2: 50,
       rotation: 0,
     }
   },
@@ -64,6 +70,8 @@ export const defaultTheme: DefaultThemeInterface = {
       mode: "single",
       color1: "#ffffff",
       color2: "#1051c8",
+      color3: "#ff7575",
+      percent_color2: 50,
       rotation: 0,
     }
   },
@@ -78,9 +86,11 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
     dotsOptions: {
       type: 'dots',
       gradient: {
-        mode: 'multiple',
+        mode: 'double',
         color1: '#EB0F0F',
         color2: '#F47B7B',
+        color3: '#ff7575',
+        percent_color2: 50,
         rotation: 0
       }
     },
@@ -90,6 +100,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         mode: 'single',
         color1: '#EB0F0F',
         color2: '#ff0000',
+        color3: '#ff7575',
+        percent_color2: 50,
         rotation: 0
       }
     },
@@ -99,6 +111,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         mode: 'single',
         color1: '#EB0F0F',
         color2: '#ff0000',
+        color3: '#ff7575',
+        percent_color2: 50,
         rotation: 0
       }
     },
@@ -107,6 +121,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         mode: 'single',
         color1: '#ffffff',
         color2: '#1051c8',
+        color3: '#ff7575',
+        percent_color2: 50,
         rotation: 0
       }
     },
@@ -122,6 +138,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         mode: 'single',
         color1: '#00ACEE',
         color2: '#F47B7B',
+        color3: '#ff7575',
+        percent_color2: 50,
         rotation: 0
       }
     },
@@ -131,6 +149,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         mode: 'single',
         color1: '#00ACEE',
         color2: '#ff0000',
+        color3: '#ff7575',
+        percent_color2: 50,
         rotation: 0
       }
     },
@@ -140,6 +160,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         mode: 'single',
         color1: '#00ACEE',
         color2: '#ff0000',
+        color3: '#ff7575',
+        percent_color2: 50,
         rotation: 0
       }
     },
@@ -148,6 +170,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         mode: 'single',
         color1: '#ffffff',
         color2: '#1051c8',
+        color3: '#ff7575',
+        percent_color2: 50,
         rotation: 0
       }
     },
