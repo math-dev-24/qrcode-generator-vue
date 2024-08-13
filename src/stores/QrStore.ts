@@ -10,6 +10,8 @@ interface QrStoreInterface {
   alert_message: string[];
   is_generated: boolean;
   use_cookie: boolean;
+  show_design: boolean;
+  show_options: boolean;
 }
 
 export const useQrStore = defineStore('qr', {
@@ -20,6 +22,8 @@ export const useQrStore = defineStore('qr', {
     generateQr: null,
     is_generated: false,
     use_cookie: false,
+    show_design: false,
+    show_options: false,
   }),
   getters: {
     getList: (state) => state.list,
@@ -43,7 +47,7 @@ export const useQrStore = defineStore('qr', {
       this.list.push(tmp_qr_code);
       this.generateQr = tmp_qr_code;
       this.currentQr.value = "";
-      if(this.use_cookie){
+      if (this.use_cookie) {
         setCookieQrCode(this.list);
       }
       setTimeout(() => {
@@ -52,7 +56,7 @@ export const useQrStore = defineStore('qr', {
     },
     deleteQr(qr: QrInterface) {
       this.list = this.list.filter(item => item.id !== qr.id);
-      if(this.use_cookie){
+      if (this.use_cookie) {
         setCookieQrCode(this.list);
       }
     },
@@ -78,12 +82,24 @@ export const useQrStore = defineStore('qr', {
     takeFromCookie() {
       const qrCode = getCookieQrCode();
       console.log(qrCode)
-      if(qrCode){
+      if (qrCode) {
         this.list = qrCode;
-        this.generateQr = qrCode[qrCode.length-1];
+        this.generateQr = qrCode[qrCode.length - 1];
         this.currentQr.value = "";
         this.is_generated = true;
       }
+    },
+    goShowOptions() {
+      this.show_options = !this.show_options;
+      this.show_design = false;
+    },
+    goShowDesign() {
+      this.show_design = !this.show_design;
+      this.show_options = false;
+    },
+    closeAllShow() {
+      this.show_design = false;
+      this.show_options = false;
     }
   }
 })
@@ -91,19 +107,19 @@ export const useQrStore = defineStore('qr', {
 const setCookieQrCode = (list: QrInterface[]) => {
   const date = new Date()
   date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 30)) // 30 days
-  document.cookie = "qrCode=" + JSON.stringify(list) + "; expires=" + date.toUTCString() + "; path=/"
+  document.cookie = "qrCodeMathApp=" + JSON.stringify(list) + "; expires=" + date.toUTCString() + "; path=/"
 }
 const getCookieQrCode = () => {
   const cookie = document.cookie
-  if (cookie.includes("qrCode=")) {
-    return JSON.parse(cookie.split("qrCode=")[1].split(";")[0])
+  if (cookie.includes("qrCodeMathApp=")) {
+    return JSON.parse(cookie.split("qrCodeMathApp=")[1].split(";")[0])
   }
 }
 
 export const defaultQr: QrInterface = {
   id: "",
   type: "url",
-  value: "",
+  value: "https://www.google.com",
   size: 300,
   margin: 0,
   dotsOptions: {
@@ -112,15 +128,19 @@ export const defaultQr: QrInterface = {
       mode: "single",
       color1: "#000000",
       color2: "#ff0000",
+      color3: "#ff7575",
+      percent_color2: 50,
       rotation: 0
     }
   },
   conersSquareOptions: {
-    type: "square",
+    type: "none",
     gradient: {
       mode: "single",
       color1: "#000000",
       color2: "#ff0000",
+      color3: "#ff7575",
+      percent_color2: 50,
       rotation: 0,
     }
   },
@@ -130,6 +150,8 @@ export const defaultQr: QrInterface = {
       mode: "single",
       color1: "#000000",
       color2: "#ff0000",
+      color3: "#ff7575",
+      percent_color2: 50,
       rotation: 0,
     }
   },
@@ -138,6 +160,8 @@ export const defaultQr: QrInterface = {
       mode: "single",
       color1: "#ffffff",
       color2: "#1051c8",
+      color3: "#ff7575",
+      percent_color2: 50,
       rotation: 0,
     }
   },

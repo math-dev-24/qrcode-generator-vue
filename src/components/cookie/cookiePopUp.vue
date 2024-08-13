@@ -10,7 +10,7 @@ const emit = defineEmits<{
 const acceptCookies = () => {
   const date = new Date()
   date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 30)) // 30 days
-  document.cookie = "cookie=true; expires=" + date.toUTCString() + "; path=/"
+  document.cookie = "QrCodeMathCookie=true; expires=" + date.toUTCString() + "; path=/"
   emit('close')
 }
 

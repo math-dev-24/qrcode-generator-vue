@@ -1,5 +1,5 @@
 <template>
-  <div class="py-6 relative">
+  <div class="p-4 relative">
     <QRCodeVue3
       :height="qr.size"
       :width="qr.size"
@@ -33,42 +33,63 @@ const { qr, download } = defineProps<{
 
 
 const getOptionsWithType = (qr: OptionsGradientType) => {
-  let tmp = {
+  const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
+  const rotate = clamp(qr.gradient.rotation, 0, 100);
+  const percentColor2 = clamp(qr.gradient.percent_color2, 10, 90) / 100;
+
+  const baseOptions = {
     type: qr.type,
     color: qr.gradient.color1,
+  };
+
+  if (qr.gradient.mode === "double" || qr.gradient.mode === "triple") {
+    const colorStops = [
+      { offset: 0, color: qr.gradient.color1 },
+      ...(qr.gradient.mode === "triple" ? [{ offset: percentColor2, color: qr.gradient.color2 }] : []),
+      { offset: 1, color: qr.gradient.color3 }
+    ];
+
+    return {
+      ...baseOptions,
+      gradient: {
+        type: "linear",
+        colorStops,
+        rotation: rotate
+      }
+    };
   }
-  if(qr.gradient.mode === "multiple"){
-    const rotate: number = qr.gradient.rotation > 100 ? 100 : qr.gradient.rotation < 0 ? 0 : qr.gradient.rotation
-    // @ts-ignore
-  return {...tmp, gradient: {
-      type: "linear",
-      colorStops: [
-        { offset: 0, color: qr.gradient.color1},
-        { offset: 1, color: qr.gradient.color2 },
-      ],
-      rotation: rotate }
-    }
-  }
-  return tmp
-}
+
+  return baseOptions;
+};
 
 const getBackgroundOptions = (qr: OptionsGradient) => {
-  const rotate: number = qr.rotation > 100 ? 100 : qr.rotation < 0 ? 0 : qr.rotation
-  let tmp = {
+  const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
+  const rotate = clamp(qr.rotation, 0, 100);
+  const percentColor2 = clamp(qr.percent_color2, 10, 90) / 100;
+
+  const baseOptions = {
     color: qr.color1,
-    gradient: null
   }
-  if(qr.mode === "multiple"){
-    // @ts-ignore
-    return {...tmp, gradient: {
-      type: "linear",
-      colorStops: [
-        { offset: 0, color: qr.color1},
-        { offset: 1, color: qr.color2 },
-      ],
-      rotation: rotate }
-    }
+
+  if (qr.mode === "double" || qr.mode === "triple") {
+    const colorStops = [
+      { offset: 0, color: qr.color1 },
+      ...(qr.mode === "triple" ? [{ offset: percentColor2, color: qr.color2 }] : []),
+      { offset: 1, color: qr.color3 }
+    ];
+
+    return {
+      ...baseOptions,
+      gradient: {
+        type: "linear",
+        colorStops,
+        rotation: rotate
+      }
+    };
   }
-  return tmp
+
+  return baseOptions;
 }
+
+
 </script>

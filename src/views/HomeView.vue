@@ -98,15 +98,8 @@ function setType(type: QrType) {
   qrStore.currentQr.type = type
   qrStore.resetAlert()
   qrStore.is_generated = false
+  qrStore.closeAllShow()
 }
-
-watch(qrStore.currentQr, () => {
-  if (qrStore.currentQr.margin < 0 || qrStore.currentQr.margin > 10) {
-    qrStore.addAlert(`Marge doit être compris entre 0 et 10 !`)
-  } else {
-    qrStore.removeAlert(`Marge doit être compris entre 0 et 10 !`)
-  }
-})
 
 function generateQr(text: string) {
   qrStore.addQr(text)

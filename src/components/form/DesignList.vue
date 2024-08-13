@@ -4,7 +4,6 @@ import { onBeforeMount, ref } from 'vue'
 import { DEFAULT_THEME, defaultTheme, type DefaultThemeInterface } from '@/shared/data/defaultTheme'
 import { useQrStore } from '@/stores/QrStore'
 
-const showDesign = ref<boolean>(false)
 const tmpDesign = ref<string>("")
 const qrStore = useQrStore()
 const tmpNameDesign = ref<string>("")
@@ -61,12 +60,12 @@ function deleteTheme(name: string) {
 function setCookie(list: DefaultThemeInterface[]) {
   const date = new Date()
   date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 30)) // 30 days
-  document.cookie = "design=" + JSON.stringify(list) + "; expires=" + date.toUTCString() + "; path=/"
+  document.cookie = "QrCodeMathDesign=" + JSON.stringify(list) + "; expires=" + date.toUTCString() + "; path=/"
 }
 
 function getCookie() {
   const cookie = document.cookie
-  if (cookie.includes("design=")) {
+  if (cookie.includes("QrCodeMathDesign=")) {
     const list = JSON.parse(cookie.split("design=")[1].split(";")[0])
     if (Array.isArray(list)) {
       return list
@@ -80,12 +79,12 @@ function getCookie() {
   <section class="border p-4 mt-6 rounded">
     <h3
       class="font-bold cursor-pointer flex items-center text-stone-500 hover:text-black gap-2"
-      @click="showDesign = !showDesign"
+      @click="qrStore.goShowDesign()"
     >
       <PencilIcon class="size-4" />
       <span>Design prédéfini</span>
     </h3>
-    <div class="flex flex-col gap-2" v-if="showDesign">
+    <div class="flex flex-col gap-2" v-show="qrStore.show_design">
       <div class="form_group" v-if="qrStore.use_cookie">
         <label>Enregistrer les options actuelles :</label>
         <div class="flex gap-2">

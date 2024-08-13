@@ -2,7 +2,7 @@
   <div class="flex flex-col min-h-screen m-0 p-0">
     <Header />
     <section class="flex-1 p-4 bg-stone-100">
-      <router-view></router-view>
+      <router-view :key="$route.fullPath" />
     </section>
     <CookiePopUp :showCookie="showCookie" @close="showCookie = false" />
     <Footer />
@@ -16,11 +16,12 @@ import CookiePopUp from '@/components/cookie/cookiePopUp.vue'
 import { onBeforeMount, ref } from 'vue'
 import { useQrStore } from '@/stores/QrStore'
 
+const qrStore = useQrStore()
 const showCookie = ref<boolean>(true)
 
 function getCookie() {
   const cookie = document.cookie
-  if (cookie.includes("cookie=")) {
+  if (cookie.includes("QrCodeMathCookie=")) {
     return true
   }
 }
@@ -28,7 +29,6 @@ function getCookie() {
 onBeforeMount(() => {
   const cookie = getCookie()
   if (cookie) {
-    const qrStore = useQrStore()
     qrStore.use_cookie = true
     showCookie.value = false
   }

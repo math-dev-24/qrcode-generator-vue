@@ -9,9 +9,11 @@ export type QrTypeConersDots = 'none' | 'dot' | 'square'
 export const QrConstConersDots: QrTypeConersDots[] = ["none", "square", "dot"]
 
 export interface OptionsGradient {
-    mode: "single" | "multiple";
+    mode: "single" | "double" | "triple";
     color1: string;
     color2: string;
+    color3: string;
+    percent_color2: number;
     rotation: number;
 }
 
