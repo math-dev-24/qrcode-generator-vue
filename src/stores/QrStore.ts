@@ -9,6 +9,7 @@ interface QrStoreInterface {
   generateQr: QrInterface|null;
   alert_message: string[];
   is_generated: boolean;
+  use_cookie: boolean;
 }
 
 export const useQrStore = defineStore('qr', {
@@ -18,6 +19,7 @@ export const useQrStore = defineStore('qr', {
     alert_message: [],
     generateQr: null,
     is_generated: false,
+    use_cookie: false,
   }),
   getters: {
     getList: (state) => state.list,

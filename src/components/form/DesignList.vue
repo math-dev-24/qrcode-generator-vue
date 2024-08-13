@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PencilIcon } from '@heroicons/vue/24/outline'
-import { onBeforeMount, onUnmounted, ref } from 'vue'
+import { onBeforeMount, ref } from 'vue'
 import { DEFAULT_THEME, defaultTheme, type DefaultThemeInterface } from '@/shared/data/defaultTheme'
 import { useQrStore } from '@/stores/QrStore'
 
@@ -35,13 +35,20 @@ function addDesign() {
     custom: true,
   }
 
+  tmpNameDesign.value = ""
+
+  if(LIST_THEME.value.find(item => item.name === tmpNameDesign.value && !item.custom)) {
+    return
+  }
+
   if(LIST_THEME.value.find(item => item.name === tmpNameDesign.value)) {
     const index = LIST_THEME.value.findIndex(item => item.name === tmpNameDesign.value)
     LIST_THEME.value[index] = tmp
+    setCookie(LIST_THEME.value)
     return
   }
+
   LIST_THEME.value.push(tmp)
-  tmpNameDesign.value = ""
   setCookie(LIST_THEME.value)
 }
 
@@ -79,7 +86,7 @@ function getCookie() {
       <span>Design prédéfini</span>
     </h3>
     <div class="flex flex-col gap-2" v-if="showDesign">
-      <div class="form_group">
+      <div class="form_group" v-if="qrStore.use_cookie">
         <label>Enregistrer les options actuelles :</label>
         <div class="flex gap-2">
           <input type="text" v-model="tmpNameDesign" class="w-full p-2 border rounded flex-1" placeholder="Nom du design" />
@@ -93,7 +100,7 @@ function getCookie() {
           </button>
         </div>
       </div>
-      <section class="grid grid-cols-4 gap-1">
+      <section class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-1">
         <div
           @click="setDesign(defaultTheme)"
           class="border rounded bg-slate-100 p-4 flex gap-1 md:gap-2 flex-col items-center justify-center cursor-pointer hover:outline outline-1 outline-black"
