@@ -14,6 +14,7 @@
         <textarea type="text" id="content" v-model="current.content" placeholder="Lorem ipsum dolor sit amen"/>
       </div>
     </div>
+    <DesignList />
     <Option />
     <ButtonForm @generateQr="generateQr" />
   </div>
@@ -26,6 +27,7 @@ import { mailto } from '@/shared/Mailto'
 import ButtonForm from '@/components/form/ButtonForm.vue'
 import { checkEmail } from '@/shared/validator'
 import Option from '@/components/form/Option.vue'
+import DesignList from '@/components/form/DesignList.vue'
 
 const current = reactive<{
   email: string;

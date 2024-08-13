@@ -8,6 +8,7 @@
       <label for="message">Message : <span class="text-red-600">*</span></label>
       <textarea type="text" id="message" v-model="message" placeholder="Bonjour, ..." />
     </div>
+    <DesignList />
     <Option />
     <ButtonForm @generateQr="generateQr" />
   </div>
@@ -20,6 +21,7 @@ import { smsSend } from '@/shared/SmsSend'
 import ButtonForm from '@/components/form/ButtonForm.vue'
 import { checkPhone } from '@/shared/validator'
 import Option from '@/components/form/Option.vue'
+import DesignList from '@/components/form/DesignList.vue'
 
 const phone = ref<string>("")
 const message = ref<string>("")

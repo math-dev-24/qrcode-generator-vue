@@ -28,6 +28,7 @@
       <input id="tax" v-model="current.tax" type="number" />
     </div>
   </section>
+  <DesignList />
   <Option />
   <ButtonForm @generateQr="generateQr" />
 </template>
@@ -38,6 +39,7 @@ import ButtonForm from '@/components/form/ButtonForm.vue'
 import { useQrStore } from '@/stores/QrStore'
 import { checkEmail } from '@/shared/validator'
 import Option from '@/components/form/Option.vue'
+import DesignList from '@/components/form/DesignList.vue'
 
 const emit = defineEmits<{
   (e: "generateQr", text: string): void;

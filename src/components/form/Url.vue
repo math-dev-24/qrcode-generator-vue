@@ -3,6 +3,7 @@
     <label class="block my-1 font-bold" for="url">Entrez l'URL : <span class="text-red-600">*</span></label>
     <input id="url" v-model="url" type="text" placeholder="https://google.com"/>
   </div>
+  <DesignList />
   <Option />
   <ButtonForm @generateQr="emit('generateQr', url)" />
 </template>
@@ -13,6 +14,7 @@ import { checkUrl } from '@/shared/validator'
 import { useQrStore } from '@/stores/QrStore'
 import ButtonForm from '@/components/form/ButtonForm.vue'
 import Option from '@/components/form/Option.vue'
+import DesignList from '@/components/form/DesignList.vue'
 
 
 const url = ref<string>('')

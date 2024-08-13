@@ -7,7 +7,7 @@
       <WrenchScrewdriverIcon class="size-4" />
       <span>Options</span>
     </h3>
-    <div class="grid grid-cols-2 gap-4" v-if="showOptions">
+    <div class="flex flex-col md:grid md:grid-cols-2 gap-2 md:gap-4" v-if="showOptions">
       <div class="form_group">
         <label for="taille">Taille :</label>
         <span class="info">Taille du QR code</span>
@@ -91,14 +91,15 @@ import SelectModeColor from '@/components/input/SelectModeColor.vue'
 import { QrConstConersDots, QrConstConersSquare, QrConstRounded } from '@/shared/interface/QrInterface'
 
 const listImage = [
-  { name: "paypal", image: 'paypal.svg', },
-  { name: "google", image: 'google.svg', },
-  { name: "apple", image: 'apple.svg', },
-  { name: "linkedin", image: 'linkedin.svg',},
-  {name: "phone", image: 'phone.svg', },
-  {name: "twitter", image: 'twitter.svg', },
-  {name: 'instagram', image: 'instagram.svg', },
-  {name: 'github', image: 'github.svg', },
+  { name: "paypal", image: 'logo/paypal.svg', },
+  { name: "google", image: 'logo/google.svg', },
+  { name: "apple", image: 'logo/apple.svg', },
+  { name: "linkedin", image: 'logo/linkedin.svg',},
+  {name: "phone", image: 'logo/phone.svg', },
+  {name: "twitter", image: 'logo/twitter.svg', },
+  {name: 'instagram', image: 'logo/instagram.svg', },
+  {name: 'github', image: 'logo/github.svg', },
+  {name: "youtube", image: 'logo/youtube.svg', },
 ]
 
 const qrStore = useQrStore()

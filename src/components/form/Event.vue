@@ -45,6 +45,7 @@
       <textarea id="location" v-model="current.location" placeholder="Le concert de Paris" />
     </div>
   </section>
+  <DesignList />
   <Option />
   <ButtonForm @generateQr="emit('generateQr', generateEventQRCode(current))" />
 </template>
@@ -58,7 +59,7 @@ import { CalendarIcon } from '@heroicons/vue/24/outline'
 import moment from 'moment'
 import type { EventDetails } from '@/shared/Event'
 import { generateEventQRCode } from '@/shared/Event'
-import { COLOR_PALETTE } from '@/shared/data/colorPalette'
+import DesignList from '@/components/form/DesignList.vue'
 
 const current = reactive<EventDetails>({
   title: "",

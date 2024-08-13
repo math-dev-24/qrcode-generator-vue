@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import type { QrInterface } from '@/shared/interface/QrInterface'
 import { nanoid } from 'nanoid'
+import type { DefaultThemeInterface } from '@/shared/data/defaultTheme'
 
 interface QrStoreInterface {
   currentQr: QrInterface;
@@ -22,9 +23,6 @@ export const useQrStore = defineStore('qr', {
     getList: (state) => state.list,
   },
   actions: {
-    resetQr() {
-      this.currentQr = {...this.currentQr, value: ""};
-    },
     addQr(text: string) {
       this.is_generated = false;
       const tmp_qr_code: QrInterface = {
@@ -42,7 +40,7 @@ export const useQrStore = defineStore('qr', {
       };
       this.list.push(tmp_qr_code);
       this.generateQr = tmp_qr_code;
-      this.resetQr();
+      this.currentQr.value = "";
       setTimeout(() => {
         this.is_generated = true;
       }, 200)
@@ -61,11 +59,18 @@ export const useQrStore = defineStore('qr', {
     },
     resetAlert() {
       this.alert_message = []
+    },
+    setTheme(theme: DefaultThemeInterface) {
+      this.currentQr.dotsOptions = theme.dotsOptions;
+      this.currentQr.conersSquareOptions = theme.conersSquareOptions;
+      this.currentQr.conersDotsOptions = theme.conersDotsOptions;
+      this.currentQr.backgroundOptions = theme.backgroundOptions;
+      this.currentQr.image = theme.image;
     }
   }
 })
 
-const defaultQr: QrInterface = {
+export const defaultQr: QrInterface = {
   id: "",
   type: "url",
   value: "",

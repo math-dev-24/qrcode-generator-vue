@@ -1,6 +1,7 @@
 <template>
   <div>
-    <section class="container mx-auto border my-2 p-2 md:my-6 md:p-6 rounded-l drop-shadow hover:drop-shadow bg-white col-span-8">
+    <section
+      class="container mx-auto border my-2 p-2 md:my-6 md:p-6 rounded-l drop-shadow hover:drop-shadow bg-white col-span-8">
       <div class="grid md:grid-cols-6 gap-0.5 md:gap-2">
         <div
           v-for="mode in MODE"
@@ -58,12 +59,18 @@
       </aside>
     </section>
   </div>
-  <aside
-    v-if="qrStore.is_generated && qrStore.generateQr"
-    class="md:fixed md:bottom-4 md:right-4 bg-white
-    rounded md:w-[430px] md:h-[430px] drop-shadow md:drop-shadow-2xl"
-  >
-    <QRCODE :qr="qrStore.generateQr" />
+  <aside v-if="qrStore.is_generated && qrStore.generateQr">
+    <Teleport to="body">
+      <div @click="qrStore.is_generated = false" class="fixed z-10 w-full h-full bg-black opacity-50 top-0 left-0"></div>
+    </Teleport>
+    <div
+      class="fixed z-20
+        md:top-1/4 md:left-1/4 md:w-2/4 md:h-2/4
+        w-[94vw] h-2/3 top-1/4 left-[3vw]
+        bg-white rounded drop-shadow-2xl"
+    >
+      <QRCODE :qr="qrStore.generateQr" />
+    </div>
   </aside>
 </template>
 

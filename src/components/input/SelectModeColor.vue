@@ -8,11 +8,11 @@ const rotate = defineModel<number>('rotate')
 </script>
 
 <template>
-  <div class="flex gap-2">
-    <div class="flex flex-col gap-2 flex-1">
+  <div class="flex gap-1 md:gap-2">
+    <div class="flex flex-col gap-2 flex-1 px-1">
       <p class="text-sm">Couleur :</p>
-      <div class="flex gap-2">
-        <select id="mode" v-model="mode" class="m-1 p-1 flex-2">
+      <div class="flex gap-1 md:gap-2">
+        <select id="mode" v-model="mode" class="m-1 md:p-1 flex-1">
           <option value="single">single</option>
           <option value="multiple">multiple</option>
         </select>
