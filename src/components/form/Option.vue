@@ -20,7 +20,7 @@
       </div>
       <div class="form_group col-span-2">
         <label for="rounded">Type de point :</label>
-        <div class="flex gap-2 flew-wrap items-center justify-around">
+        <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 items-center">
           <div
             v-for="i in QrConstRounded"
             :key="i" @click="setRounded(i)"
@@ -42,7 +42,7 @@
       </div>
       <div class="form_group col-span-2">
         <label for="square">Design des bords du coins :</label>
-        <div class="flex gap-2 flew-wrap items-center justify-around">
+        <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 items-center">
           <div
             v-for="i in QrConstConersSquare"
             :key="i" @click="setConersSquare(i)"
@@ -64,7 +64,7 @@
       </div>
       <div class="form_group col-span-2">
         <label for="dotCorner">Design des points aux coins :</label>
-        <div class="flex gap-2 flew-wrap items-center justify-around">
+        <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 items-center">
           <div
             v-for="i in QrConstConersDots"
             :key="i" @click="setConersDots(i)"

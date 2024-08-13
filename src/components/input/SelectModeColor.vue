@@ -13,7 +13,7 @@ const rotate = defineModel<number>('rotate')
   <div class="flex gap-1 md:gap-2 border rounded p-2">
     <div class="flex flex-col gap-2 flex-1 px-1">
       <p class="text-sm">Couleur :</p>
-      <div class="flex gap-1 md:gap-2">
+      <div class="flex flex-col md:flex-row gap-1 md:gap-2">
         <select id="mode" v-model="mode" class="m-1 md:p-1 flex-1">
           <option value="single">single</option>
           <option value="double">double</option>
@@ -32,15 +32,17 @@ const rotate = defineModel<number>('rotate')
         </div>
       </div>
     </div>
-    <template v-if="mode === 'double' || mode === 'triple'">
+    <div v-if="mode === 'double' || mode === 'triple'" class="flex flex-col md:flex-row gap-2 flex-1">
       <div class="form_group flex-1">
         <label for="rotate">Rotation du gradient :</label>
+        <span class="info">Rotation en degré</span>
         <input type="number" v-model="rotate" />
       </div>
-      <div class="form_group flex-1">
-        <label for="percent_color2">Pourcentage de couleur 2 : (10 à 90%)</label>
+      <div class="form_group flex-1" v-if="mode === 'triple'">
+        <label for="percent_color2">Position color2 :</label>
+        <span class="info">10 à 90%</span>
         <input type="number" v-model="percent_color2" />
       </div>
-    </template>
+    </div>
   </div>
 </template>
