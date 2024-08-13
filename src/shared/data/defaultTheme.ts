@@ -24,12 +24,14 @@ export interface DefaultThemeInterface {
   }
   image: string;
   imageDemo: string;
+  custom: boolean;
 }
 
 export const defaultTheme: DefaultThemeInterface = {
   name: "",
   image: '',
   imageDemo: '',
+  custom: true,
   dotsOptions: {
     type: "rounded",
     gradient: {
@@ -72,6 +74,7 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
     name: "Youtube",
     image: 'logo/youtube.svg',
     imageDemo: 'exemple/youtube.png',
+    custom: false,
     dotsOptions: {
       type: 'dots',
       gradient: {
@@ -112,6 +115,7 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
     name: "Twitter",
     image: 'logo/twitter.svg',
     imageDemo: 'exemple/twitter.png',
+    custom: false,
     dotsOptions: {
       type: 'classy-rounded',
       gradient: {

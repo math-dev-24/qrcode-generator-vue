@@ -50,7 +50,7 @@
       </div>
       <aside
         v-if="qrStore.alert_message.length > 0"
-        class="p-4 m-2 border border-red-700 rounded hover:drop-shadow bg-red-50 text-red-600 hover:outline-2 hover:outline outline-red-400"
+        class="p-4 border border-red-700 rounded hover:drop-shadow bg-red-50 text-red-600 hover:outline-2 hover:outline outline-red-400"
       >
         <ul class="list-disc">
           <li v-for="message in qrStore.alert_message" :key="message" class="text-red-600 font-semibold">- {{ message }}

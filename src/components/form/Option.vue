@@ -76,8 +76,16 @@
             {{ i.name }}
           </div>
         </div>
-        <img v-if="qrStore.currentQr.image" :src="qrStore.currentQr.image" class="w-8 h-8 object-cover" alt="temporyQrCode" />
-        <div @click="setImage('')" class="text-red-500 cursor-pointer">Supprimer</div>
+        <span
+          @click="setImage('')"
+          class="text-red-400 hover:text-red-500 cursor-pointer"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48"><g fill="none" stroke="currentColor"><path fill="currentColor" stroke-linejoin="round" stroke-width="4.302" d="M44.782 24.17L31.918 7.1L14.135 20.5L27.5 37l3.356-2.336z"/><path stroke-linejoin="round" stroke-width="4.302" d="m27.5 37l-3.839 3.075l-10.563-.001l-2.6-3.45l-6.433-8.536L14.5 20.225"/><path stroke-linecap="round" stroke-width="4.5" d="M13.206 40.072h31.36"/></g></svg>
+        </span>
+        <div v-if="qrStore.currentQr.image" class="flex items-center justify-start gap-2">
+          <span>Preview :</span>
+          <img :src="qrStore.currentQr.image" class="w-8 h-8 object-cover" alt="temporyQrCode" />
+        </div>
       </div>
     </div>
   </section>
