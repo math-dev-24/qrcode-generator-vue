@@ -43,12 +43,18 @@ export const useQrStore = defineStore('qr', {
       this.list.push(tmp_qr_code);
       this.generateQr = tmp_qr_code;
       this.currentQr.value = "";
+      if(this.use_cookie){
+        setCookieQrCode(this.list);
+      }
       setTimeout(() => {
         this.is_generated = true;
       }, 200)
     },
     deleteQr(qr: QrInterface) {
       this.list = this.list.filter(item => item.id !== qr.id);
+      if(this.use_cookie){
+        setCookieQrCode(this.list);
+      }
     },
     addAlert(message: string) {
       const index = this.alert_message.findIndex(item => item === message);
@@ -68,9 +74,31 @@ export const useQrStore = defineStore('qr', {
       this.currentQr.conersDotsOptions = theme.conersDotsOptions;
       this.currentQr.backgroundOptions = theme.backgroundOptions;
       this.currentQr.image = theme.image;
+    },
+    takeFromCookie() {
+      const qrCode = getCookieQrCode();
+      console.log(qrCode)
+      if(qrCode){
+        this.list = qrCode;
+        this.generateQr = qrCode[qrCode.length-1];
+        this.currentQr.value = "";
+        this.is_generated = true;
+      }
     }
   }
 })
+
+const setCookieQrCode = (list: QrInterface[]) => {
+  const date = new Date()
+  date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 30)) // 30 days
+  document.cookie = "qrCode=" + JSON.stringify(list) + "; expires=" + date.toUTCString() + "; path=/"
+}
+const getCookieQrCode = () => {
+  const cookie = document.cookie
+  if (cookie.includes("qrCode=")) {
+    return JSON.parse(cookie.split("qrCode=")[1].split(";")[0])
+  }
+}
 
 export const defaultQr: QrInterface = {
   id: "",

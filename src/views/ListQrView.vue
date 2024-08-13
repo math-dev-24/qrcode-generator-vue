@@ -15,6 +15,14 @@
 </template>
 <script lang="ts" setup>
 import { useQrStore } from '@/stores/QrStore'
-import QRCard from '@/components/QRCard.vue'
+import QRCard from '@/components/qrcode/QRCard.vue'
 import { PlusCircleIcon } from '@heroicons/vue/24/solid'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const qrStore = useQrStore()
+  qrStore.takeFromCookie()
+  qrStore.is_generated = false
+})
+
 </script>

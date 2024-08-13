@@ -1,7 +1,7 @@
 <template>
   <div class="border rounded py-2 px-4 relative hover:outline-2 hover:outline outline-stone-400 bg-white">
     <h3 class="text-xl text-center my-2 font-bold">Card N°{{ qr.id.slice(0,3) }}</h3>
-    <QRCODE :qr="qr" />
+    <QRCODE :qr="qr" :download="true" />
     <div id="detailQr" class="text-xs p-2 border rounded mt-2 text-stone-600">
       <p><span>Type :</span> {{ qr.type }}</p>
       <p><span>Créer le</span> {{getDate(qr.created_at)}}</p>

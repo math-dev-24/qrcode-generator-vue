@@ -12,7 +12,7 @@
       :cornersSquareOptions="getOptionsWithType(qr.conersSquareOptions)"
       :cornersDotOptions="getOptionsWithType(qr.conersDotsOptions)"
       :backgroundOptions="getBackgroundOptions(qr.backgroundOptions.gradient)"
-      :download="true"
+      :download="download"
       myclass="img-qr"
       imgclass="img-qr"
       downloadButton="btn-download"
@@ -26,8 +26,9 @@ import { defineProps } from 'vue'
 import QRCodeVue3 from "qrcode-vue3";
 import type { OptionsGradient, OptionsGradientType, QrInterface } from '@/shared/interface/QrInterface'
 
-const { qr } = defineProps<{
-  qr: QrInterface
+const { qr, download } = defineProps<{
+  qr: QrInterface,
+  download: boolean
 }>()
 
 

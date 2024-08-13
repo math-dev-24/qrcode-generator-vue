@@ -69,7 +69,7 @@
         w-[94vw] h-2/3 top-1/4 left-[3vw]
         bg-white rounded drop-shadow-2xl"
     >
-      <QRCODE :qr="qrStore.generateQr" />
+      <QRCODE :qr="qrStore.generateQr" :download="true" />
     </div>
   </aside>
 </template>
@@ -83,7 +83,7 @@ import Email from '@/components/form/Email.vue'
 import Sms from '@/components/form/Sms.vue'
 import Vcard from '@/components/form/Vcard.vue'
 import type { QrType } from '@/shared/interface/QrInterface'
-import QRCODE from '@/components/QRCODE.vue'
+import QRCODE from '@/components/qrcode/QRCODE.vue'
 import { watch } from 'vue'
 import Wifi from '@/components/form/Wifi.vue'
 import Paypal from '@/components/form/Paypal.vue'
