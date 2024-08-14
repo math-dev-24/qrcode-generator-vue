@@ -35,7 +35,7 @@ import DesignList from '@/components/form/DesignList.vue'
 import Option from '@/components/form/Option.vue'
 import Errors from '@/components/Errors.vue'
 import Lecture from '@/components/form/Lecture.vue'
-import { computed } from 'vue'
+import { computed, onBeforeMount } from 'vue'
 
 const qrStore = useQrStore()
 
@@ -60,5 +60,6 @@ const componentsMap: Record<string, any> = {
 const currentComponent = computed(() => {
   return componentsMap[qrStore.currentQr.type] || 'div'
 })
+
 
 </script>

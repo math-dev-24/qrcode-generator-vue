@@ -14,7 +14,7 @@ import Header from './components/Template/Header.vue'
 import Footer from './components/Template/Footer.vue'
 import CookiePopUp from '@/components/cookie/cookiePopUp.vue'
 import { onBeforeMount, ref } from 'vue'
-import { useQrStore } from '@/stores/QrStore'
+import { getCookieMode, useQrStore } from '@/stores/QrStore'
 
 const qrStore = useQrStore()
 const showCookie = ref<boolean>(true)
@@ -29,6 +29,7 @@ function getCookie() {
 onBeforeMount(() => {
   const cookie = getCookie()
   if (cookie) {
+    qrStore.currentQr.type = getCookieMode()
     qrStore.use_cookie = true
     showCookie.value = false
   }

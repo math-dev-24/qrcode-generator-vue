@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { QrInterface } from '@/shared/interface/QrInterface'
+import type { QrInterface, QrType } from '@/shared/interface/QrInterface'
 import { nanoid } from 'nanoid'
 import type { DefaultThemeInterface } from '@/shared/data/defaultTheme'
 
@@ -81,7 +81,6 @@ export const useQrStore = defineStore('qr', {
     },
     takeFromCookie() {
       const qrCode = getCookieQrCode();
-      console.log(qrCode)
       if (qrCode) {
         this.list = qrCode;
         this.generateQr = qrCode[qrCode.length - 1];
@@ -100,6 +99,12 @@ export const useQrStore = defineStore('qr', {
     closeAllShow() {
       this.show_design = false;
       this.show_options = false;
+    },
+    updateMode(mode: string) {
+      this.currentQr.type = mode;
+      if (this.use_cookie) {
+        setCookieMode(mode);
+      }
     }
   }
 })
@@ -114,6 +119,20 @@ const getCookieQrCode = () => {
   if (cookie.includes("qrCodeMathApp=")) {
     return JSON.parse(cookie.split("qrCodeMathApp=")[1].split(";")[0])
   }
+}
+
+const setCookieMode = (mode: string) => {
+  const date = new Date()
+  date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 30)) // 30 days
+  document.cookie = "qrCodeMathMode=" + mode + "; expires=" + date.toUTCString() + "; path=/"
+}
+
+export const getCookieMode = (): QrType => {
+  const cookie = document.cookie
+  if (cookie.includes("qrCodeMathMode=")) {
+    return cookie.split("qrCodeMathMode=")[1].split(";")[0] as QrType
+  }
+  return "url"
 }
 
 export const defaultQr: QrInterface = {
