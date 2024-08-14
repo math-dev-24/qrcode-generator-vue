@@ -107,8 +107,8 @@
           <div
             v-for="i in listImage" :key="i.name"
             @click="setImage(i.image)"
-            class="text-gray-300 cursor-pointer border rounded px-2 py-1 "
-            :class="qrStore.currentQr.image == i.image ? 'text-gray-500 bg-stone-100' : 'hover:bg-stone-100'"
+            class="text-gray-500 cursor-pointer border rounded px-2 py-1 outline-1 outline-gray-500"
+            :class="qrStore.currentQr.image == i.image ? 'text-gray-700 bg-stone-200 outline' : 'hover:bg-stone-100 hover:outline'"
           >
             {{ i.name }}
           </div>
