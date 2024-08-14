@@ -38,6 +38,7 @@
           v-model:rotate="qrStore.currentQr.dotsOptions.gradient.rotation"
           v-model:percent_color2="qrStore.currentQr.dotsOptions.gradient.percent_color2"
           v-model:color3="qrStore.currentQr.dotsOptions.gradient.color3"
+          v-model:type="qrStore.currentQr.dotsOptions.gradient.type"
         />
       </div>
       <div class="form_group col-span-2">
@@ -60,6 +61,7 @@
           v-model:rotate="qrStore.currentQr.conersSquareOptions.gradient.rotation"
           v-model:percent_color2="qrStore.currentQr.conersSquareOptions.gradient.percent_color2"
           v-model:color3="qrStore.currentQr.conersSquareOptions.gradient.color3"
+          v-model:type="qrStore.currentQr.conersSquareOptions.gradient.type"
         />
       </div>
       <div class="form_group col-span-2">
@@ -82,6 +84,7 @@
           v-model:rotate="qrStore.currentQr.conersDotsOptions.gradient.rotation"
           v-model:percent_color2="qrStore.currentQr.conersDotsOptions.gradient.percent_color2"
           v-model:color3="qrStore.currentQr.conersDotsOptions.gradient.color3"
+          v-model:type="qrStore.currentQr.conersDotsOptions.gradient.type"
         />
       </div>
       <div class="form_group col-span-2">
@@ -93,17 +96,19 @@
           v-model:rotate="qrStore.currentQr.backgroundOptions.gradient.rotation"
           v-model:percent_color2="qrStore.currentQr.backgroundOptions.gradient.percent_color2"
           v-model:color3="qrStore.currentQr.backgroundOptions.gradient.color3"
+          v-model:type="qrStore.currentQr.backgroundOptions.gradient.type"
         />
       </div>
       <div class="form_group col-span-2">
         <label for="background">Image :</label>
         <input id="image" type="file" class="m-1 p-1" @change="getFile($event)" />
-        <div class="flex flex-wrap gap-2"> Pré défini :
+        <div class="flex flex-wrap gap-2 items-center">
+          <span class="text-sm">Pré défini :</span>
           <div
             v-for="i in listImage" :key="i.name"
             @click="setImage(i.image)"
-            class="text-gray-300 cursor-pointer"
-            :class="qrStore.currentQr.image == i.image ? 'text-gray-500' : ''"
+            class="text-gray-300 cursor-pointer border rounded px-2 py-1 "
+            :class="qrStore.currentQr.image == i.image ? 'text-gray-500 bg-stone-100' : 'hover:bg-stone-100'"
           >
             {{ i.name }}
           </div>
@@ -134,7 +139,6 @@ import {
   type QrInterface, type QrTypeConersDots, type QrTypeConersSquare, type QrTypeRounded
 } from '@/shared/interface/QrInterface'
 import QRCODE from '@/components/qrcode/QRCODE.vue'
-import { onMounted } from 'vue'
 
 const listImage = [
   { name: "paypal", image: 'logo/paypal.svg', },
@@ -146,6 +150,8 @@ const listImage = [
   {name: 'instagram', image: 'logo/instagram.svg', },
   {name: 'github', image: 'logo/github.svg', },
   {name: "youtube", image: 'logo/youtube.svg', },
+  {name: "telegram", image: 'logo/telegram.svg', },
+  {name: "facebook", image: 'logo/facebook.svg', },
 ]
 
 const qrStore = useQrStore()
@@ -177,6 +183,7 @@ function getConersDots(type: QrTypeConersDots): QrInterface {
       type: type,
       gradient: {
         mode: "single",
+        type: "linear",
         color1: "#ff0000",
         color2: "#ff0000",
         color3: "#ff0000",
@@ -203,6 +210,7 @@ function getConersSquare(type: QrTypeConersSquare): QrInterface {
         color3: "#ff0000",
         percent_color2: 50,
         rotation: 0,
+        type: "linear"
       }
     }
   }
@@ -219,6 +227,7 @@ function getRounded(type: QrTypeRounded): QrInterface {
       type: type,
       gradient: {
         mode: "single",
+        type: "linear",
         color1: "#ff0000",
         color2: "#ff0000",
         color3: "#ff0000",

@@ -10,6 +10,7 @@ export const QrConstConersDots: QrTypeConersDots[] = ["none", "square", "dot"]
 
 export interface OptionsGradient {
     mode: "single" | "double" | "triple";
+    type: "linear" | "radial";
     color1: string;
     color2: string;
     color3: string;

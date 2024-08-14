@@ -40,7 +40,8 @@ export const defaultTheme: DefaultThemeInterface = {
       color2: "#ff0000",
       color3: "#ff7575",
       percent_color2: 50,
-      rotation: 0
+      rotation: 0,
+      type: "linear"
     }
   },
   conersSquareOptions: {
@@ -52,6 +53,7 @@ export const defaultTheme: DefaultThemeInterface = {
       color3: "#ff7575",
       percent_color2: 50,
       rotation: 0,
+      type: "linear"
     }
   },
   conersDotsOptions: {
@@ -63,6 +65,7 @@ export const defaultTheme: DefaultThemeInterface = {
       color3: "#ff7575",
       percent_color2: 50,
       rotation: 0,
+      type: "linear"
     }
   },
   backgroundOptions: {
@@ -73,6 +76,7 @@ export const defaultTheme: DefaultThemeInterface = {
       color3: "#ff7575",
       percent_color2: 50,
       rotation: 0,
+      type: "linear"
     }
   },
 }
@@ -91,7 +95,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         color2: '#F47B7B',
         color3: '#ff7575',
         percent_color2: 50,
-        rotation: 0
+        rotation: 0,
+        type: "linear"
       }
     },
     conersSquareOptions: {
@@ -102,7 +107,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         color2: '#ff0000',
         color3: '#ff7575',
         percent_color2: 50,
-        rotation: 0
+        rotation: 0,
+        type: "linear"
       }
     },
     conersDotsOptions: {
@@ -113,7 +119,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         color2: '#ff0000',
         color3: '#ff7575',
         percent_color2: 50,
-        rotation: 0
+        rotation: 0,
+        type: "linear"
       }
     },
     backgroundOptions: {
@@ -123,7 +130,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         color2: '#1051c8',
         color3: '#ff7575',
         percent_color2: 50,
-        rotation: 0
+        rotation: 0,
+        type: "linear"
       }
     },
   },
@@ -140,7 +148,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         color2: '#F47B7B',
         color3: '#ff7575',
         percent_color2: 50,
-        rotation: 0
+        rotation: 0,
+        type: "linear"
       }
     },
     conersSquareOptions: {
@@ -151,7 +160,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         color2: '#ff0000',
         color3: '#ff7575',
         percent_color2: 50,
-        rotation: 0
+        rotation: 0,
+        type: "linear"
       }
     },
     conersDotsOptions: {
@@ -162,7 +172,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         color2: '#ff0000',
         color3: '#ff7575',
         percent_color2: 50,
-        rotation: 0
+        rotation: 0,
+        type: "linear"
       }
     },
     backgroundOptions: {
@@ -172,7 +183,8 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         color2: '#1051c8',
         color3: '#ff7575',
         percent_color2: 50,
-        rotation: 0
+        rotation: 0,
+        type: "linear"
       }
     },
   }

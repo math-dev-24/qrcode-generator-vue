@@ -52,7 +52,7 @@ const getOptionsWithType = (qr: OptionsGradientType) => {
     return {
       ...baseOptions,
       gradient: {
-        type: "linear",
+        type: qr.gradient.type,
         colorStops,
         rotation: rotate
       }
@@ -81,7 +81,7 @@ const getBackgroundOptions = (qr: OptionsGradient) => {
     return {
       ...baseOptions,
       gradient: {
-        type: "linear",
+        type: qr.type,
         colorStops,
         rotation: rotate
       }
