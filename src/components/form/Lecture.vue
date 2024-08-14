@@ -19,6 +19,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import jsQR from 'jsqr'
 
 
 const qrCodeData = ref<string | null>(null)
