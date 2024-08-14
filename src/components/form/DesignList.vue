@@ -66,7 +66,7 @@ function setCookie(list: DefaultThemeInterface[]) {
 function getCookie() {
   const cookie = document.cookie
   if (cookie.includes("QrCodeMathDesign=")) {
-    const list = JSON.parse(cookie.split("design=")[1].split(";")[0])
+    const list = JSON.parse(cookie.split("QrCodeMathDesign=")[1].split(";")[0])
     if (Array.isArray(list)) {
       return list
     }
@@ -82,7 +82,7 @@ function getCookie() {
       @click="qrStore.goShowDesign()"
     >
       <PencilIcon class="size-4" />
-      <span>Design prédéfini</span>
+      <span>Design prédéfini - {{ LIST_THEME.length }}</span>
     </h3>
     <div class="flex flex-col gap-2" v-show="qrStore.show_design">
       <div class="form_group" v-if="qrStore.use_cookie">

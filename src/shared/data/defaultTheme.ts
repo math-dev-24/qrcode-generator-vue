@@ -187,5 +187,58 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
         type: "linear"
       }
     },
-  }
+  },
+  {
+    name: "Facebook",
+    image: 'logo/facebook.svg',
+    imageDemo: 'exemple/facebook.png',
+    custom: false,
+    dotsOptions: {
+      type: 'rounded',
+      gradient: {
+        mode: 'double',
+        color1: '#3b5998',
+        color2: '#5581dd',
+        color3: '#5581dd',
+        percent_color2: 50,
+        rotation: 0,
+        type: "radial"
+      }
+    },
+    conersSquareOptions: {
+      type: 'square',
+      gradient: {
+        mode: 'single',
+        color1: '#5581dd',
+        color2: '#ff0000',
+        color3: '#ff7575',
+        percent_color2: 50,
+        rotation: 0,
+        type: "linear"
+      }
+    },
+    conersDotsOptions: {
+      type: 'dot',
+      gradient: {
+        mode: 'single',
+        color1: '#5581dd',
+        color2: '#ff0000',
+        color3: '#ff7575',
+        percent_color2: 50,
+        rotation: 0,
+        type: "linear"
+      }
+    },
+    backgroundOptions: {
+      gradient: {
+        mode: 'single',
+        color1: '#ffffff',
+        color2: '#1051c8',
+        color3: '#ff7575',
+        percent_color2: 50,
+        rotation: 0,
+        type: "linear"
+      }
+    },
+  },
 ]

@@ -25,10 +25,10 @@ const type = defineModel<string>('type')
           <input id="color1" v-model="color1" type="color"
                  class="w-[70px] h-[30px] block"
           />
-          <input v-if="mode === 'double' || mode === 'triple'" id="color2" v-model="color2" type="color"
+          <input v-if="mode === 'triple'" id="color2" v-model="color2" type="color"
                  class="w-[70px] h-[30px] block"
           />
-          <input v-if="mode === 'triple'" id="color3" v-model="color3" type="color"
+          <input v-if="mode === 'double' || mode === 'triple'" id="color3" v-model="color3" type="color"
                  class="w-[70px] h-[30px] block"
           />
         </div>
