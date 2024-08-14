@@ -76,7 +76,7 @@ function getCookie() {
 </script>
 
 <template>
-  <section class="border p-4 mt-6 rounded">
+  <section class="border p-4 my-4 md:my-6 rounded hover:outline outline-1 outline-black">
     <h3
       class="font-bold cursor-pointer flex items-center text-stone-500 hover:text-black gap-2"
       @click="qrStore.goShowDesign()"

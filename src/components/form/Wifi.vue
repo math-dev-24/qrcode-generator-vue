@@ -22,8 +22,6 @@
       <label for="hidden">Réseau caché : <span class="text-red-600">*</span></label>
       <input type="checkbox" id="hidden" v-model="current.hidden" />
     </div>
-    <DesignList />
-    <Option />
     <ButtonForm @generateQr="generateQr" />
   </div>
 </template>
@@ -31,8 +29,6 @@
 import ButtonForm from '@/components/form/ButtonForm.vue'
 import { onMounted, reactive, watch } from 'vue'
 import { useQrStore } from '@/stores/QrStore'
-import Option from '@/components/form/Option.vue'
-import DesignList from '@/components/form/DesignList.vue'
 
 function generateQr() {
   const wifi_str: string = `WIFI:T:${current.security};S:${current.ssid};P:${current.password};H:${current.hidden};;`

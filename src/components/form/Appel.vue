@@ -11,19 +11,15 @@
       <input type="text" id="phone" v-model="current.phone" placeholder="645842524" />
     </div>
   </section>
-  <DesignList />
-  <Option />
   <ButtonForm @generateQr="emit('generateQr', `tel:${current.countryCode}${current.phone}`)" />
 </template>
 
 <script setup lang="ts">
-import Option from '@/components/form/Option.vue'
 import ButtonForm from '@/components/form/ButtonForm.vue'
 import SelectCountryPhone from '@/components/input/SelectCountryPhone.vue'
 import { onMounted, reactive, watch } from 'vue'
 import { useQrStore } from '@/stores/QrStore'
 import { checkPhone } from '@/shared/validator'
-import DesignList from '@/components/form/DesignList.vue'
 
 const current = reactive<{
   countryCode: string;

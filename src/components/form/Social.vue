@@ -30,8 +30,6 @@
       </label>
       <input type="text" id="value" v-model="value"/>
     </div>
-    <DesignList />
-    <Option />
     <ButtonForm @generateQr="generate" />
   </section>
 </template>
@@ -39,10 +37,7 @@
 <script lang="ts" setup>
 import { useQrStore } from '@/stores/QrStore'
 import ButtonForm from '@/components/form/ButtonForm.vue'
-import Option from '@/components/form/Option.vue'
 import { onMounted, ref, watch } from 'vue'
-import { COLOR_PALETTE } from '@/shared/data/colorPalette'
-import DesignList from '@/components/form/DesignList.vue'
 
 const qrStore = useQrStore()
 const mode = ref<string>("twitter")

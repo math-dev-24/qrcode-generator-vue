@@ -1,11 +1,11 @@
 <template>
-  <section class="border p-4 mt-6 rounded">
+  <section class="border p-4 my-2 rounded hover:outline outline-1 outline-black">
     <h3
       class="font-bold cursor-pointer flex items-center text-stone-500 hover:text-black gap-2"
       @click="qrStore.goShowOptions()"
     >
       <WrenchScrewdriverIcon class="size-4" />
-      <span>Options</span>
+      <span>Personnaliser</span>
     </h3>
     <div class="flex flex-col md:grid md:grid-cols-2 gap-2 md:gap-4" v-show="qrStore.show_options">
       <div class="form_group">

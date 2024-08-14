@@ -45,21 +45,17 @@
       <textarea id="location" v-model="current.location" placeholder="Le concert de Paris" />
     </div>
   </section>
-  <DesignList />
-  <Option />
   <ButtonForm @generateQr="emit('generateQr', generateEventQRCode(current))" />
 </template>
 
 <script setup lang="ts">
 import { onMounted, reactive, watch } from 'vue'
 import ButtonForm from '@/components/form/ButtonForm.vue'
-import Option from '@/components/form/Option.vue'
 import { useQrStore } from '@/stores/QrStore'
 import { CalendarIcon } from '@heroicons/vue/24/outline'
 import moment from 'moment'
 import type { EventDetails } from '@/shared/Event'
 import { generateEventQRCode } from '@/shared/Event'
-import DesignList from '@/components/form/DesignList.vue'
 
 const current = reactive<EventDetails>({
   title: "",

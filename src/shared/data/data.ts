@@ -56,5 +56,10 @@ export const MODE: ModeInterface[] = [
     name: "social",
     label: "Social",
     emoji: "🐦",
+  },
+  {
+    name: "scanQr",
+    label: "Lecture",
+    emoji: "📖",
   }
 ]

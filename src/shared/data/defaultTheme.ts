@@ -241,4 +241,57 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
       }
     },
   },
+  {
+    name: 'Telegram',
+    image: "logo/telegram.svg",
+    imageDemo: "exemple/telegram.png",
+    custom: false,
+    dotsOptions: {
+      type: "dots",
+      gradient: {
+        mode: "single",
+        color1: "#0b9ee8",
+        color2: "#ff0000",
+        color3: "#ff7575",
+        percent_color2: 50,
+        rotation: 0,
+        type: "linear"
+      }
+    },
+    conersSquareOptions: {
+      type: "extra-rounded",
+      gradient: {
+        mode: "single",
+        color1: "#0088cc",
+        color2: "#ff0000",
+        color3: "#ff7575",
+        percent_color2: 50,
+        rotation: 0,
+        type: "linear"
+      }
+    },
+    conersDotsOptions: {
+      type: "dot",
+      gradient: {
+        mode: "single",
+        color1: "#0088cc",
+        color2: "#ff0000",
+        color3: "#ff7575",
+        percent_color2: 50,
+        rotation: 0,
+        type: "linear"
+      }
+    },
+    backgroundOptions: {
+      gradient: {
+        mode: "single",
+        color1: "#ffffff",
+        color2: "#1051c8",
+        color3: "#ff7575",
+        percent_color2: 50,
+        rotation: 0,
+        type: "linear"
+      }
+    }
+  },
 ]

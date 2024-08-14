@@ -57,8 +57,6 @@
         <input type="text" id="country" v-model="currentQr.address.country"/>
       </div>
     </div>
-    <DesignList />
-    <Option />
     <ButtonForm @generateQr="generate" />
   </div>
 </template>
@@ -70,8 +68,6 @@ import { generateVcard } from '@/shared/Vcard'
 import PhoneInputCustom from '@/components/PhoneInputCustom.vue'
 import ButtonForm from '@/components/form/ButtonForm.vue'
 import AddPhone from '@/components/AddPhone.vue'
-import Option from '@/components/form/Option.vue'
-import DesignList from '@/components/form/DesignList.vue'
 
 const showAddPhone = ref<boolean>(false)
 const currentQr = ref<VCardInterface>({
