@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts" setup>
-import jsQR from 'jsqr'
 import { ref } from 'vue'
 
 
