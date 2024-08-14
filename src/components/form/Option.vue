@@ -129,16 +129,15 @@
 </template>
 
 <script lang="ts" setup>
-import { defaultQr, useQrStore } from '@/stores/QrStore'
+import { useQrStore } from '@/stores/QrStore'
 import { WrenchScrewdriverIcon } from '@heroicons/vue/24/outline'
 import SelectModeColor from '@/components/input/SelectModeColor.vue'
 import {
   QrConstConersDots,
   QrConstConersSquare,
   QrConstRounded,
-  type QrInterface, type QrTypeConersDots, type QrTypeConersSquare, type QrTypeRounded
+  type QrTypeConersDots, type QrTypeConersSquare, type QrTypeRounded
 } from '@/shared/interface/QrInterface'
-import QRCODE from '@/components/qrcode/QRCODE.vue'
 
 const listImage = [
   { name: "paypal", image: 'logo/paypal.svg', },
@@ -173,70 +172,14 @@ const setImage = (image: string) => {
   file.value = ""
 }
 
-const size: number = 100
-
-function getConersDots(type: QrTypeConersDots): QrInterface {
-  return {
-    ...defaultQr,
-    size: size,
-    conersDotsOptions: {
-      type: type,
-      gradient: {
-        mode: "single",
-        type: "linear",
-        color1: "#ff0000",
-        color2: "#ff0000",
-        color3: "#ff0000",
-        percent_color2: 50,
-        rotation: 0,
-      }
-    }
-  }
-}
 function setConersDots(conersDotsOptions: QrTypeConersDots) {
   qrStore.currentQr.conersDotsOptions.type = conersDotsOptions
 }
 
-function getConersSquare(type: QrTypeConersSquare): QrInterface {
-  return {
-    ...defaultQr,
-    size: size,
-    conersSquareOptions: {
-      type: type,
-      gradient: {
-        mode: "single",
-        color1: "#ff0000",
-        color2: "#ff0000",
-        color3: "#ff0000",
-        percent_color2: 50,
-        rotation: 0,
-        type: "linear"
-      }
-    }
-  }
-}
 function setConersSquare(conersSquareOptions: QrTypeConersSquare) {
   qrStore.currentQr.conersSquareOptions.type = conersSquareOptions
 }
 
-function getRounded(type: QrTypeRounded): QrInterface {
-  return {
-    ...defaultQr,
-    size: size,
-    dotsOptions: {
-      type: type,
-      gradient: {
-        mode: "single",
-        type: "linear",
-        color1: "#ff0000",
-        color2: "#ff0000",
-        color3: "#ff0000",
-        percent_color2: 50,
-        rotation: 0,
-      }
-    }
-  }
-}
 function setRounded(rounded: QrTypeRounded) {
   qrStore.currentQr.dotsOptions.type = rounded
 }
