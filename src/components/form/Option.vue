@@ -7,7 +7,7 @@
       <WrenchScrewdriverIcon class="size-4" />
       <span>Personnaliser</span>
     </h3>
-    <div class="flex flex-col md:grid md:grid-cols-2 gap-2 md:gap-4" v-show="qrStore.show_options">
+    <div class="flex flex-col md:grid md:grid-cols-2 gap-2 md:gap-4" v-if="qrStore.show_options">
       <div class="form_group">
         <label for="taille">Taille :</label>
         <span class="info">Taille du QR code</span>
@@ -27,7 +27,7 @@
             class="border p-2 rounded bg-white"
             :class="qrStore.currentQr.dotsOptions.type === i ? 'border-stone-700 border-2' : 'hover:outline outline-1 outline-gray-500'"
           >
-            <QRCODE :qr="getRounded(i)" :download="false" />
+            <img :src="`template/point/${i}.png`" class="w-[90px] h-[90px] block m-auto" alt="temporyQrCode" />
             <div class="text-center text-xs text-gray-600">{{i}}</div>
           </div>
         </div>
@@ -50,7 +50,7 @@
             class="border p-2 rounded"
             :class="qrStore.currentQr.conersSquareOptions.type === i ? 'border-stone-700 border-2' : 'hover:outline outline-1 outline-gray-500'"
           >
-            <QRCODE :qr="getConersSquare(i)" :download="false" />
+            <img :src="`template/bordCoin/${i}.png`" class="w-[90px] h-[90px] block m-auto" alt="temporyQrCode" />
             <div class="text-center text-xs text-gray-600">{{i}}</div>
           </div>
         </div>
@@ -73,7 +73,7 @@
             class="border p-2 rounded"
             :class="qrStore.currentQr.conersDotsOptions.type === i ? 'border-stone-700 border-2' : 'hover:outline outline-1 outline-gray-500'"
           >
-            <QRCODE :qr="getConersDots(i)" :download="false" />
+            <img :src="`template/pointCoin/${i}.png`" class="w-[90px] h-[90px] block m-auto" alt="temporyQrCode" />
             <div class="text-center text-xs text-gray-600">{{i}}</div>
           </div>
         </div>
