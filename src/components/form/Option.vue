@@ -27,7 +27,7 @@
             class="border p-2 rounded bg-white"
             :class="qrStore.currentQr.dotsOptions.type === i ? 'border-stone-700 border-2' : 'hover:outline outline-1 outline-gray-500'"
           >
-            <img :src="`template/point/${i}.png`" class="w-[90px] h-[90px] block m-auto" alt="temporyQrCode" />
+            <img :src="`template/point/${i}.png`" class="w-[70px] h-[70px] md:w-[120px] md:h-[110px] block m-auto" alt="temporyQrCode" />
             <div class="text-center text-xs text-gray-600">{{i}}</div>
           </div>
         </div>
@@ -50,7 +50,7 @@
             class="border p-2 rounded"
             :class="qrStore.currentQr.conersSquareOptions.type === i ? 'border-stone-700 border-2' : 'hover:outline outline-1 outline-gray-500'"
           >
-            <img :src="`template/bordCoin/${i}.png`" class="w-[90px] h-[90px] block m-auto" alt="temporyQrCode" />
+            <img :src="`template/bordCoin/${i}.png`" class="w-[70px] h-[70px] md:w-[120px] md:h-[110px] block m-auto" alt="temporyQrCode" />
             <div class="text-center text-xs text-gray-600">{{i}}</div>
           </div>
         </div>
@@ -73,7 +73,7 @@
             class="border p-2 rounded"
             :class="qrStore.currentQr.conersDotsOptions.type === i ? 'border-stone-700 border-2' : 'hover:outline outline-1 outline-gray-500'"
           >
-            <img :src="`template/pointCoin/${i}.png`" class="w-[90px] h-[90px] block m-auto" alt="temporyQrCode" />
+            <img :src="`template/pointCoin/${i}.png`" class="w-[70px] h-[70px] md:w-[120px] md:h-[110px] block m-auto" alt="temporyQrCode" />
             <div class="text-center text-xs text-gray-600">{{i}}</div>
           </div>
         </div>
