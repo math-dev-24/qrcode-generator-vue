@@ -1,4 +1,4 @@
-export type QrType = "url" | "vcard" | "text" | "email" | "sms" | "wifi" | "paypal" | "whatsapp" | "image" | "qrcode" | "call" | "event" | "social" | "scanQr";
+export type QrType = "url" | "vcard" | "text" | "email" | "sms" | "wifi" | "paypal" | "whatsapp" | "image" | "qrcode" | "call" | "event" | "social" | "scanQr" | "crypto";
 
 
 export type QrTypeRounded = 'rounded' | 'dots' | 'classy' | 'classy-rounded' | 'square' | 'extra-rounded'

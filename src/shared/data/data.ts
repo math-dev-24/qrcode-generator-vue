@@ -13,19 +13,24 @@ export const MODE: ModeInterface[] = [
     emoji: "🌐"
   },
   {
-    name: "vcard",
-    label: "vCard",
-    emoji: "📎"
-  },
-  {
     name: "text",
     label: "Texte",
     emoji: "📝"
   },
   {
+    name: "vcard",
+    label: "vCard",
+    emoji: "📎"
+  },
+  {
     name: "email",
     label: "Email",
     emoji: "📧"
+  },
+  {
+    name: "call",
+    label: "Appel",
+    emoji: "📱"
   },
   {
     name: "sms",
@@ -43,11 +48,6 @@ export const MODE: ModeInterface[] = [
     emoji: "💳"
   },
   {
-    name: "call",
-    label: "Appel",
-    emoji: "📱"
-  },
-  {
     name: "event",
     label: "Evénement",
     emoji: "📅"
@@ -56,6 +56,11 @@ export const MODE: ModeInterface[] = [
     name: "social",
     label: "Social",
     emoji: "🐦",
+  },
+  {
+    name: "crypto",
+    label: "Crypto",
+    emoji: "🔐",
   },
   {
     name: "scanQr",

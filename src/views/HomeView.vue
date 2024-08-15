@@ -40,6 +40,7 @@ import DesignList from '@/components/form/DesignList.vue'
 import Option from '@/components/form/Option.vue'
 import Errors from '@/components/Errors.vue'
 import Lecture from '@/components/form/Lecture.vue'
+import Crypto from '@/components/form/Crypto.vue'
 import { computed } from 'vue'
 
 const qrStore = useQrStore()
@@ -59,6 +60,7 @@ const componentsMap: Record<string, any> = {
   call: Appel,
   event: Event,
   social: Social,
+  crypto: Crypto,
   scanQr: Lecture,
 }
 
