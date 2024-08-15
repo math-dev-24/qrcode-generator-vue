@@ -294,4 +294,57 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
       }
     }
   },
+  {
+    name: "Bitcoin",
+    image: 'logo/bitcoin.svg',
+    imageDemo: 'exemple/bitcoin.png',
+    custom: false,
+    dotsOptions: {
+      type: 'rounded',
+      gradient: {
+        mode: 'double',
+        color1: '#FFD700',
+        color2: '#D79A10',
+        color3: '#D79A10',
+        percent_color2: 50,
+        rotation: 0,
+        type: "radial"
+      }
+    },
+    conersSquareOptions: {
+      type: 'extra-rounded',
+      gradient: {
+        mode: 'single',
+        color1: '#D79A10',
+        color2: '#ff0000',
+        color3: '#ff7575',
+        percent_color2: 50,
+        rotation: 0,
+        type: "linear"
+      }
+    },
+    conersDotsOptions: {
+      type: 'dot',
+      gradient: {
+        mode: 'single',
+        color1: '#D79A10',
+        color2: '#ff0000',
+        color3: '#ff7575',
+        percent_color2: 50,
+        rotation: 0,
+        type: "linear"
+      }
+    },
+    backgroundOptions: {
+      gradient: {
+        mode: 'single',
+        color1: '#ffffff',
+        color2: '#1051c8',
+        color3: '#ff7575',
+        percent_color2: 50,
+        rotation: 0,
+        type: "linear"
+      }
+    },
+  }
 ]

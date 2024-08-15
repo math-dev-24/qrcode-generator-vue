@@ -151,6 +151,8 @@ const listImage = [
   {name: "youtube", image: 'logo/youtube.svg', },
   {name: "telegram", image: 'logo/telegram.svg', },
   {name: "facebook", image: 'logo/facebook.svg', },
+  {name: "bitcoin", image: 'logo/bitcoin.svg', },
+  {name: "ethereum", image: 'logo/ethereum.svg', },
 ]
 
 const qrStore = useQrStore()
