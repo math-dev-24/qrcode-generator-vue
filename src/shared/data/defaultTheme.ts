@@ -300,7 +300,7 @@ export const DEFAULT_THEME: DefaultThemeInterface[] = [
     imageDemo: 'exemple/bitcoin.png',
     custom: false,
     dotsOptions: {
-      type: 'rounded',
+      type: 'dots',
       gradient: {
         mode: 'double',
         color1: '#FFD700',
