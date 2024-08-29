@@ -27,6 +27,8 @@ const qrStore = useQrStore()
 
 
 function setType(type: QrType) {
+  if(qrStore.currentQr.type === type) return
+
   qrStore.updateMode(type)
   qrStore.resetAlert()
   qrStore.is_generated = false
