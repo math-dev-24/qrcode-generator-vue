@@ -1,4 +1,7 @@
 <template>
+  <span class="text-sm text-stone-500 text-center block mb-2 mt-4 italic">
+    Générer dans votre navigateur (Aucune données récupérées)
+  </span>
   <Mode />
   <section
     class="container mx-auto border my-2 p-2 md:p-6 rounded drop-shadow hover:drop-shadow bg-white">
