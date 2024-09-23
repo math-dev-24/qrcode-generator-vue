@@ -17,7 +17,7 @@ function setDesign(design: DefaultThemeInterface) {
 
 onBeforeMount(() => {
   const cookie = getCookie()
-  if (cookie) {
+  if (cookie.length > 0) {
     LIST_THEME.value = cookie
   }
 })
@@ -63,7 +63,7 @@ function setCookie(list: DefaultThemeInterface[]) {
   document.cookie = "QrCodeMathDesign=" + JSON.stringify(list) + "; expires=" + date.toUTCString() + "; path=/"
 }
 
-function getCookie() {
+function getCookie(): DefaultThemeInterface[] {
   const cookie = document.cookie
   if (cookie.includes("QrCodeMathDesign=")) {
     const list = JSON.parse(cookie.split("QrCodeMathDesign=")[1].split(";")[0])
@@ -71,6 +71,7 @@ function getCookie() {
       return list
     }
   }
+  return []
 }
 
 </script>
