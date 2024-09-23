@@ -11,19 +11,30 @@
         :class="qrStore.currentQr.type === mode.name ? 'bg-stone-700 text-white' : 'hover:bg-stone-200 bg-stone-50 hover:outline-2 hover:outline outline-stone-400'"
         class="text-xs md:text-base rounded border cursor-pointer p-0.5 md:p-2 transition-all duration-150 text-center font-semibold"
         @click="setType(mode.name)"
+        @mouseover="tmp_mode = mode.name"
+        @mouseleave="tmp_mode = qrStore.currentQr.type"
       >
         {{ mode.emoji }} {{ mode.label }}
       </div>
     </div>
+    <p class="text-stone-600 text-center italic mt-4">{{ mode_description }}</p>
   </aside>
 </template>
 <script setup lang="ts">
 import { MODE } from '@/shared/data/data'
 import { useQrStore } from '@/stores/QrStore'
 import type { QrType } from '@/shared/interface/QrInterface'
+import { ref, computed } from 'vue'
 
 
 const qrStore = useQrStore()
+
+const tmp_mode = ref<string>(qrStore.currentQr.type)
+
+const mode_description = computed(() => {
+  const mode = MODE.find(mode => mode.name === tmp_mode.value)
+  return mode?.description
+})
 
 
 function setType(type: QrType) {
